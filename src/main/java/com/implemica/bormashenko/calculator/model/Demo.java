@@ -8,7 +8,6 @@ import com.implemica.bormashenko.calculator.model.exceptions.OverflowException;
 import java.math.BigDecimal;
 
 import static com.implemica.bormashenko.calculator.model.enums.BinaryOperation.*;
-import static com.implemica.bormashenko.calculator.model.enums.BinaryOperation.DIVIDE;
 import static com.implemica.bormashenko.calculator.model.enums.UnaryOperation.*;
 
 /**
@@ -38,60 +37,62 @@ public class Demo {
         BigDecimal d = new BigDecimal("4");
         BigDecimal e = new BigDecimal("5");
 
-        //calculate (a²) and set it as first.
-        calculation.calculateUnary(a, SQR);
-        calculation.setFirst(calculation.getResult());
+        BigDecimal result;
 
-        System.out.println("Result of previous operation: " + calculation.getResult());
+        //calculate (a²) and set it as first.
+        result = calculation.calculateUnary(a, SQR);
+        calculation.setFirst(result);
+
+        System.out.println("Result of previous operation: " + result);
 
         //calculate (-b) and set it as second.
-        calculation.calculateUnary(b, NEGATE);
-        calculation.setSecond(calculation.getResult());
+        result = calculation.calculateUnary(b, NEGATE);
+        calculation.setSecond(result);
 
-        System.out.println("Result of previous operation: " + calculation.getResult());
+        System.out.println("Result of previous operation: " + result);
 
         //then calculate (a² + (-b))
         calculation.setBinaryOperation(ADD);
-        calculation.calculateBinary();
+        result = calculation.calculateBinary();
 
-        System.out.println("Result of previous operation: " + calculation.getResult());
+        System.out.println("Result of previous operation: " + result);
 
         //then multiply previous result on c
-        calculation.setFirst(calculation.getResult());
+        calculation.setFirst(result);
         calculation.setSecond(c);
         calculation.setBinaryOperation(MULTIPLY);
-        calculation.calculateBinary();
+        result = calculation.calculateBinary();
 
-        System.out.println("Result of previous operation: " + calculation.getResult());
+        System.out.println("Result of previous operation: " + result);
 
         //set previous result as first, calculate (√d) and set it as second.
-        calculation.setFirst(calculation.getResult());
-        calculation.calculateUnary(d, SQRT);
-        calculation.setSecond(calculation.getResult());
+        calculation.setFirst(result);
+        result = calculation.calculateUnary(d, SQRT);
+        calculation.setSecond(result);
 
-        System.out.println("Result of previous operation: " + calculation.getResult());
+        System.out.println("Result of previous operation: " + result);
 
         //then subtract result of (√d) from result of ((a² + (-b)) * c).
         calculation.setBinaryOperation(SUBTRACT);
-        calculation.calculateBinary();
+        result = calculation.calculateBinary();
 
-        System.out.println("Result of previous operation: " + calculation.getResult());
+        System.out.println("Result of previous operation: " + result);
 
         //set previous result as first, calculate ((1/e)²) and set it as second.
-        calculation.setFirst(calculation.getResult());
-        calculation.calculateUnary(e, INVERSE);
-        calculation.calculateUnary(calculation.getResult(), SQR);
-        calculation.setSecond(calculation.getResult());
+        calculation.setFirst(result);
+        result = calculation.calculateUnary(e, INVERSE);
+        result = calculation.calculateUnary(result, SQR);
+        calculation.setSecond(result);
 
-        System.out.println("Result of previous operation: " + calculation.getResult());
+        System.out.println("Result of previous operation: " + result);
 
         calculation.setFirst(BigDecimal.ONE);
         calculation.setSecond(BigDecimal.ZERO);
         //then divide result of ((a² + (-b)) * c - (√d)) by result of (1/e)².
         calculation.setBinaryOperation(DIVIDE);
-        calculation.calculateBinary();
+        result = calculation.calculateBinary();
 
-        System.out.println("Result of previous operation: " + calculation.getResult());
+        System.out.println("Result of previous operation: " + result);
     }
 }
 

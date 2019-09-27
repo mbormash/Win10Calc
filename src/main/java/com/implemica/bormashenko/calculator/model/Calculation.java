@@ -62,11 +62,6 @@ public class Calculation {
     private BigDecimal second = BigDecimal.ZERO;
 
     /**
-     * Result of equation.
-     */
-    private BigDecimal result = BigDecimal.ZERO;
-
-    /**
      * {@link BinaryOperation} of equation.
      */
     private BinaryOperation binaryOperation;
@@ -87,10 +82,6 @@ public class Calculation {
         return second;
     }
 
-    public BigDecimal getResult() {
-        return result;
-    }
-
     public void setBinaryOperation(BinaryOperation binaryOperation) {
         this.binaryOperation = binaryOperation;
     }
@@ -105,18 +96,20 @@ public class Calculation {
     public void resetAll() {
         first = BigDecimal.ZERO;
         second = BigDecimal.ZERO;
-        result = BigDecimal.ZERO;
         binaryOperation = null;
     }
 
     /**
      * Calculates result using first value, {@link BinaryOperation} and second value.
      *
+     * @return result of operation.
      * @throws OverflowException         while validation for result is failed.
      * @throws DivideByZeroException     if trying to divide by zero.
      * @throws DivideZeroByZeroException if trying to divide zero by zero.
      */
-    public void calculateBinary() throws OverflowException, DivideByZeroException, DivideZeroByZeroException {
+    public BigDecimal calculateBinary() throws OverflowException, DivideByZeroException, DivideZeroByZeroException {
+        BigDecimal result = BigDecimal.ZERO;
+
         if (binaryOperation == BinaryOperation.ADD) {
             result = add();
         } else if (binaryOperation == BinaryOperation.SUBTRACT) {
@@ -133,19 +126,23 @@ public class Calculation {
                 first)) {
             throw new OverflowException();
         }
+
+        return result;
     }
 
     /**
      * Calculates result using first value and {@link UnaryOperation}.
      *
      * @param unaryOperation operation to perform.
+     * @return result of operation.
      * @throws OverflowException     while validation for result is failed.
      * @throws NegativeRootException if trying to divide inverse zero.
      * @throws DivideByZeroException if trying to divide inverse zero.
      */
-    public void calculateUnary(BigDecimal number, UnaryOperation unaryOperation) throws OverflowException,
-            NegativeRootException,
-            DivideByZeroException {
+    public BigDecimal calculateUnary(BigDecimal number, UnaryOperation unaryOperation) throws OverflowException,
+            NegativeRootException, DivideByZeroException {
+        BigDecimal result = BigDecimal.ZERO;
+
         if (unaryOperation == UnaryOperation.NEGATE) {
             result = negate(number);
         } else if (unaryOperation == UnaryOperation.SQR) {
@@ -161,16 +158,22 @@ public class Calculation {
         if (OverflowValidation.overflowValidationFailed(result, false, first)) {
             throw new OverflowException();
         }
+
+        return result;
     }
 
     /**
      * Calculates second number as a percentage of first number if current {@code BinaryOperation} is
      * {@code BinaryOperation.ADD} or {@code BinaryOperation.SUBTRACT}, or as a percentage of 100 if current
      * {@code BinaryOperation} is {@code BinaryOperation.MULTIPLY} or {@code BinaryOperation.DIVIDE}
+     *
      * @param number number to perform operation.
+     * @return result of operation.
      * @throws OverflowException while validation for result is failed.
      */
-    public void calculatePercentage(BigDecimal number) throws OverflowException {
+    public BigDecimal calculatePercentage(BigDecimal number) throws OverflowException {
+        BigDecimal result = BigDecimal.ZERO;
+
         if (binaryOperation == null) {
             resetAll();
         } else if (binaryOperation == BinaryOperation.ADD || binaryOperation == BinaryOperation.SUBTRACT) {
@@ -184,6 +187,8 @@ public class Calculation {
         if (OverflowValidation.overflowValidationFailed(result, false, first)) {
             throw new OverflowException();
         }
+
+        return result;
     }
 
     /**
@@ -239,6 +244,7 @@ public class Calculation {
 
     /**
      * Calculates negated first number.
+     *
      * @param number number to perform operation.
      * @return negated first number.
      */
@@ -248,6 +254,7 @@ public class Calculation {
 
     /**
      * Calculates square of first number.
+     *
      * @param number number to perform operation.
      * @return square of first number.
      */
@@ -261,6 +268,7 @@ public class Calculation {
      * This method is almost copied from JDK.9 src.
      * All additional information You can find at
      * {@link = "https://docs.oracle.com/javase/9/docs/api/java/math/BigDecimal.html#sqrt-java.math.MathContext-"}
+     *
      * @param number number to perform operation.
      * @return square root of first number.
      * @throws NegativeRootException while first value is negative.
@@ -331,11 +339,12 @@ public class Calculation {
 
     /**
      * Calculates inverted first number.
+     *
      * @param number number to perform operation.
      * @return inverted first number.
      * @throws DivideByZeroException while first number is 0.
      */
-    private BigDecimal inverse(BigDecimal number) throws DivideByZeroException{
+    private BigDecimal inverse(BigDecimal number) throws DivideByZeroException {
         if (number.compareTo(BigDecimal.ZERO) == 0) {
             throw new DivideByZeroException();
         }
@@ -345,6 +354,7 @@ public class Calculation {
 
     /**
      * Calculates second number as a percentage of the first.
+     *
      * @param number number to perform operation.
      * @throws OverflowException while validation for second value is failed.
      */
@@ -362,7 +372,7 @@ public class Calculation {
      * @param number number to perform operation.
      * @throws OverflowException while validation for second number is failed.
      */
-    private BigDecimal percentageOf100(BigDecimal number) throws OverflowException{
+    private BigDecimal percentageOf100(BigDecimal number) throws OverflowException {
         if (number.scale() - ONE_HUNDRED.stripTrailingZeros().scale() > MAX_SCALE) {
             throw new OverflowException();
         }

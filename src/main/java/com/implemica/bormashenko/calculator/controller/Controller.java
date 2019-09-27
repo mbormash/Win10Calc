@@ -180,6 +180,11 @@ public class Controller implements Initializable {
     private Memory memory = new Memory();
 
     /**
+     * {@code BigDecimal} value of result of operation just performed.
+     */
+    private BigDecimal result = BigDecimal.ZERO;
+
+    /**
      * True if number on screen can be edited.
      */
     private boolean isEditableScreen = true;
@@ -321,7 +326,6 @@ public class Controller implements Initializable {
                 buttonToFire.fire();
             }
 
-           throw new ArrayIndexOutOfBoundsException("Array index of bound");
         } catch (Throwable e) {
             tellUserAboutError(e.getMessage());
         }
@@ -636,6 +640,7 @@ public class Controller implements Initializable {
 
             clearText();
             calculation.resetAll();
+            result = BigDecimal.ZERO;
             equation.setText(EMPTY_STRING);
 
             setFlags(true, false, false,
@@ -956,7 +961,7 @@ public class Controller implements Initializable {
         BigDecimal number;
 
         if (checkResult && (isEqualsPressed || isBinaryOperationPressed || isUnaryOrPercentPressed)) {
-            number = calculation.getResult();
+            number = result;
         } else if (isRecalledFromMemory) {
             number = memory.recall();
         } else {
@@ -1034,13 +1039,13 @@ public class Controller implements Initializable {
             } else {
 
                 if (isEqualsPressed) {
-                    equationTextToSet = binaryAfterEquals(operation, calculation.getResult());
+                    equationTextToSet = binaryAfterEquals(operation, result);
                 } else {
                     equationTextToSet = equation.getText() + NARROW_SPACE + binaryOperationSymbol(operation);
                 }
 
                 if (isUnaryOrPercentPressed) {
-                    calculateBinaryAndSetNewBinary(operation, calculation.getResult());
+                    calculateBinaryAndSetNewBinary(operation, result);
                 }
             }
 
@@ -1078,9 +1083,15 @@ public class Controller implements Initializable {
             DivideByZeroException, DivideZeroByZeroException, ParseException {
         boolean divideWasPerformed = calculation.getBinaryOperation() == BinaryOperation.DIVIDE;
         calculation.setSecond(second);
-        calculation.calculateBinary();
-        setBinaryAndFirst(operation, calculation.getResult());
-        showNumberOnScreen(formatNumber(calculation.getResult(), true), divideWasPerformed);
+
+        if (calculation.getBinaryOperation() != null) {
+            result = calculation.calculateBinary();
+        } else {
+            result = calculation.getFirst();
+        }
+
+        setBinaryAndFirst(operation, result);
+        showNumberOnScreen(formatNumber(result, true), divideWasPerformed);
     }
 
     /**
@@ -1099,7 +1110,7 @@ public class Controller implements Initializable {
             equationTextToSet = formatNumber(number, false) +
                     NARROW_SPACE + binaryOperationSymbol(operation);
         } else {
-            equationTextToSet = formatNumber(calculation.getResult(), false) +
+            equationTextToSet = formatNumber(result, false) +
                     NARROW_SPACE + binaryOperationSymbol(operation);
         }
 
@@ -1185,9 +1196,9 @@ public class Controller implements Initializable {
      */
     private void setFirstAndCalculateUnary(UnaryOperation operation, BigDecimal first) throws OverflowException,
             NegativeRootException, DivideByZeroException, ParseException {
-        calculation.calculateUnary(first, operation);
-        calculation.setFirst(calculation.getResult());
-        showNumberOnScreen(formatNumber(calculation.getResult(), true), false);
+        result = calculation.calculateUnary(first, operation);
+        calculation.setFirst(result);
+        showNumberOnScreen(formatNumber(result, true), false);
     }
 
     /**
@@ -1204,9 +1215,15 @@ public class Controller implements Initializable {
      */
     private void severalUnaryInARow(UnaryOperation operation) throws OverflowException, NegativeRootException,
             DivideByZeroException, ParseException {
-        calculation.calculateUnary(calculation.getResult(), operation);
-        calculation.setSecond(calculation.getResult());
-        showNumberOnScreen(formatNumber(calculation.getResult(), true), false);
+        result = calculation.calculateUnary(result, operation);
+
+        if (calculation.getBinaryOperation() == null) {
+            calculation.setFirst(result);
+        } else {
+            calculation.setSecond(result);
+        }
+
+        showNumberOnScreen(formatNumber(result, true), false);
     }
 
     /**
@@ -1319,15 +1336,15 @@ public class Controller implements Initializable {
      */
     private void calculateUnaryFirstIsSet(UnaryOperation operation, BigDecimal number) throws OverflowException,
             NegativeRootException, DivideByZeroException, ParseException {
-        calculation.calculateUnary(number, operation);
+        result = calculation.calculateUnary(number, operation);
 
         if (isEqualsPressed) {
-            calculation.setFirst(calculation.getResult());
+            calculation.setFirst(result);
         } else {
-            calculation.setSecond(calculation.getResult());
+            calculation.setSecond(result);
         }
 
-        showNumberOnScreen(formatNumber(calculation.getResult(), true), false);
+        showNumberOnScreen(formatNumber(result, true), false);
     }
 
     /**
@@ -1364,7 +1381,7 @@ public class Controller implements Initializable {
                         equationTextToSet += NARROW_SPACE;
                     }
 
-                    equationTextToSet += formatNumber(calculation.getResult(), false);
+                    equationTextToSet += formatNumber(result, false);
                 }
 
                 setFlags(false, false, true,
@@ -1397,9 +1414,9 @@ public class Controller implements Initializable {
     private void percentageWithBinary() throws OverflowException, ParseException {
         BigDecimal number = getCorrectNumber(false);
 
-        calculation.calculatePercentage(number);
-        calculation.setSecond(calculation.getResult());
-        showNumberOnScreen(formatNumber(calculation.getResult(), true), false);
+        result = calculation.calculatePercentage(number);
+        calculation.setSecond(result);
+        showNumberOnScreen(formatNumber(result, true), false);
     }
 
     /**
@@ -1416,7 +1433,7 @@ public class Controller implements Initializable {
         int lastIndexOfOperation = findLastIndexOfOperation(equationTextToSet);
         String textBefore = equationTextToSet.substring(0, lastIndexOfOperation);
 
-        return textBefore + NARROW_SPACE + formatNumber(calculation.getResult(), false);
+        return textBefore + NARROW_SPACE + formatNumber(result, false);
     }
 
     /**
@@ -1473,7 +1490,7 @@ public class Controller implements Initializable {
             calculateResultAfterEqualsOrUnaryOrPercentage();
         }
 
-        showNumberOnScreen(formatNumber(calculation.getResult(), true),
+        showNumberOnScreen(formatNumber(result, true),
                 calculation.getBinaryOperation() == BinaryOperation.DIVIDE);
     }
 
@@ -1497,8 +1514,8 @@ public class Controller implements Initializable {
             calculation.setSecond(number);
         }
 
-        calculation.calculateBinary();
-        calculation.setFirst(calculation.getResult());
+        result = calculation.calculateBinary();
+        calculation.setFirst(result);
     }
 
     /**
@@ -1515,10 +1532,10 @@ public class Controller implements Initializable {
     private void calculateResultAfterEqualsOrUnaryOrPercentage() throws OverflowException, DivideByZeroException,
             DivideZeroByZeroException {
         if (isEqualsPressed) {
-            calculation.setFirst(calculation.getResult());
+            calculation.setFirst(result);
         }
 
-        calculation.calculateBinary();
+        result = calculation.calculateBinary();
     }
 
     /**

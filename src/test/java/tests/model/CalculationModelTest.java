@@ -89,15 +89,20 @@ class CalculationModelTest {
 
         assertEquals(BigDecimal.ZERO, calculation.getFirst());
         assertEquals(BigDecimal.ZERO, calculation.getSecond());
-        assertEquals(BigDecimal.ZERO, calculation.getResult());
         assertNull(calculation.getBinaryOperation());
     }
 
     /**
      * Tests for the only add operation.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void addOperationTests() {
+    void addOperationTests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         //easy cases
         checkEquation("2+2=", "4");
         checkEquation("-3+-3=", "-6");
@@ -182,9 +187,15 @@ class CalculationModelTest {
 
     /**
      * Tests for the only subtract operation.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void subtractOperationTests() {
+    void subtractOperationTests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         //easy cases
         checkEquation("2-2=", "0");
         checkEquation("-3--3=", "0");
@@ -270,9 +281,15 @@ class CalculationModelTest {
 
     /**
      * Tests for the only multiply operation.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void multiplyOperationTests() {
+    void multiplyOperationTests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         //easy cases
         checkEquation("2*2=", "4");
         checkEquation("-3*-3=", "9");
@@ -357,9 +374,15 @@ class CalculationModelTest {
 
     /**
      * Tests for the only divide operation.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void divideOperationTests() {
+    void divideOperationTests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         //easy cases
         checkEquation("2/2=", "1");
         checkEquation("-3/-3=", "1");
@@ -443,9 +466,15 @@ class CalculationModelTest {
 
     /**
      * Tests for equations that contains only binary operations.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void severalBinaryOperationsTests() {
+    void severalBinaryOperationsTests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         //integer numbers
         checkEquation("1+1+1=", "3");
         checkEquation("10-2-2=", "6");
@@ -494,9 +523,15 @@ class CalculationModelTest {
 
     /**
      * Tests for the only negate operation.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void negateOperationTests() {
+    void negateOperationTests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         //easy cases
         checkEquation("2 NEG", "-2");
         checkEquation("-3 NEG", "3");
@@ -537,9 +572,15 @@ class CalculationModelTest {
 
     /**
      * Tests for the only square operation.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void sqrOperationTests() {
+    void sqrOperationTests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         //easy cases
         checkEquation("2 SQR", "4");
         checkEquation("-3 SQR", "9");
@@ -586,9 +627,15 @@ class CalculationModelTest {
 
     /**
      * Tests for the only square root operation.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void sqrtOperationTests() {
+    void sqrtOperationTests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         //easy cases
         checkEquation("4 ROOT", "2");
         checkEquation("9 ROOT", "3");
@@ -629,9 +676,15 @@ class CalculationModelTest {
 
     /**
      * Tests for the only inverse operation.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void inverseOperationTests() {
+    void inverseOperationTests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         //easy cases
         checkEquation("2 INVERSE", "0.5");
         checkEquation("0.5 INVERSE", "2");
@@ -678,9 +731,15 @@ class CalculationModelTest {
 
     /**
      * Tests for equations that contains only unary operations.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void severalUnaryOperationTests() {
+    void severalUnaryOperationTests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         //integer numbers
         checkEquation("1 NEG NEG", "1");
         checkEquation("10 SQR SQR SQR", "1.e+8");
@@ -717,9 +776,15 @@ class CalculationModelTest {
 
     /**
      * Tests for the only percentage of first operation.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void percentageOfFirstTests() {
+    void percentageOfFirstTests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         //easy cases
         checkEquation("100+100%", "1.e+2");
         checkEquation("50+-100%", "-5.e+1");
@@ -801,9 +866,15 @@ class CalculationModelTest {
 
     /**
      * Tests for the only percentage of 100 operation.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void percentageOf100Tests() {
+    void percentageOf100Tests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         //easy cases
         checkEquation("100*%", "1");
         checkEquation("-10*%", "-0.1");
@@ -865,14 +936,19 @@ class CalculationModelTest {
 
         assertEquals(BigDecimal.ZERO, calculation.getFirst());
         assertEquals(BigDecimal.ZERO, calculation.getSecond());
-        assertEquals(BigDecimal.ZERO, calculation.getResult());
     }
 
     /**
      * Tests for equations that contain binary, unary and percent operations.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void allOperationsTests() {
+    void allOperationsTests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         checkEquation("2 + 2 SQR =", "6");
         checkEquation("5 SQR + 9 ROOT =", "28");
         checkEquation("10 SQR ROOT + 15 =", "25");
@@ -1189,9 +1265,15 @@ class CalculationModelTest {
 
     /**
      * Tests for bounds for {@link OverflowException}.
+     *
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
     @Test
-    void boundaryTests() {
+    void boundaryTests() throws DivideByZeroException, OverflowException, DivideZeroByZeroException,
+            NegativeRootException {
         StringBuilder veryBigNumbers = new StringBuilder();
 
         //integer part with 10000 nines
@@ -1298,17 +1380,15 @@ class CalculationModelTest {
      *                       <p>
      *                       Any unary operation will be performed on previously inputted number.
      * @param expectedResult result that should be obtained.
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
-    private void checkEquation(String equation, String expectedResult) {
+    private void checkEquation(String equation, String expectedResult) throws DivideByZeroException, OverflowException,
+            NegativeRootException, DivideZeroByZeroException {
         String[] args = splitEquation(equation);
-
-        try {
-            performTestCalculation(args);
-        } catch (OverflowException | DivideByZeroException | DivideZeroByZeroException | NegativeRootException e) {
-            fail();
-        }
-
-        assertEquals(new BigDecimal(expectedResult), calculation.getResult());
+        assertEquals(new BigDecimal(expectedResult), performTestCalculation(args));
     }
 
     /**
@@ -1368,16 +1448,18 @@ class CalculationModelTest {
      *             args = {"5", "sqr"} will calculate 5^2, as well as args = {"5", "sqr", "="}.
      *             <p>
      *             args = {"5", "+", "9", "sqr", "="} will calculate 5 + 9^2 (that is 81) and the final result is 86.
-     * @throws OverflowException         while validation for result is failed.
-     * @throws DivideByZeroException     if trying to divide by zero.
-     * @throws DivideZeroByZeroException if trying to divide zero by zero.
-     * @throws NegativeRootException     if trying to divide inverse zero.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
+     * @throws NegativeRootException     if this exception was thrown during calculation.
      */
-    private void performTestCalculation(String[] args) throws OverflowException, DivideByZeroException,
+    private BigDecimal performTestCalculation(String[] args) throws OverflowException, DivideByZeroException,
             DivideZeroByZeroException, NegativeRootException {
         calculation.resetAll();
         calculation.setFirst(new BigDecimal(args[0]));
         boolean secondSet = false;
+
+        BigDecimal result = BigDecimal.ZERO;
 
         for (int i = 1; i < args.length; i++) {
 
@@ -1386,58 +1468,64 @@ class CalculationModelTest {
                 calculation.setSecond(new BigDecimal(args[i]));
                 secondSet = true;
             } else if (args[i].equals("+")) {
-                doBinary(secondSet);
+                result = doBinary(secondSet);
                 calculation.setBinaryOperation(ADD);
                 secondSet = false;
             } else if (args[i].equals("-")) {
-                doBinary(secondSet);
+                result = doBinary(secondSet);
                 calculation.setBinaryOperation(SUBTRACT);
                 secondSet = false;
             } else if (args[i].equals("*")) {
-                doBinary(secondSet);
+                result = doBinary(secondSet);
                 calculation.setBinaryOperation(MULTIPLY);
                 secondSet = false;
             } else if (args[i].equals("/")) {
-                doBinary(secondSet);
+                result = doBinary(secondSet);
                 calculation.setBinaryOperation(DIVIDE);
                 secondSet = false;
             } else if (args[i].equals("neg")) {
-                doUnary(secondSet, NEGATE);
+                result = doUnary(secondSet, NEGATE);
             } else if (args[i].equals("sqr")) {
-                doUnary(secondSet, SQR);
+                result = doUnary(secondSet, SQR);
             } else if (args[i].equals("root")) {
-                doUnary(secondSet, SQRT);
+                result = doUnary(secondSet, SQRT);
             } else if (args[i].equals("inverse")) {
-                doUnary(secondSet, INVERSE);
+                result = doUnary(secondSet, INVERSE);
             } else if (args[i].equals("%")) {
-                doPercent(secondSet);
+                result = doPercent(secondSet);
             } else if (args[i].equals("=")) {
                 if (!secondSet) {
                     calculation.setSecond(calculation.getFirst());
                 }
 
-                doBinary(true);
+                result = doBinary(true);
                 secondSet = false;
             } else {
                 throw new IllegalArgumentException("Expected: binary operation or number. Got: " + args[i]);
             }
         }
+
+        return result;
     }
 
     /**
      * Performs binary calculation from {@link Calculation} for tests. The same method should be used in controller.
      *
      * @param secondSet only if true calculation should be made.
-     * @throws OverflowException         while validation for result is failed.
-     * @throws DivideByZeroException     if trying to divide by zero.
-     * @throws DivideZeroByZeroException if trying to divide zero by zero.
+     * @throws OverflowException         if this exception was thrown during calculation.
+     * @throws DivideByZeroException     if this exception was thrown during calculation.
+     * @throws DivideZeroByZeroException if this exception was thrown during calculation.
      */
-    private void doBinary(boolean secondSet) throws OverflowException, DivideByZeroException,
+    private BigDecimal doBinary(boolean secondSet) throws OverflowException, DivideByZeroException,
             DivideZeroByZeroException {
+        BigDecimal result = BigDecimal.ZERO;
+
         if (secondSet) {
-            calculation.calculateBinary();
-            calculation.setFirst(calculation.getResult());
+            result = calculation.calculateBinary();
+            calculation.setFirst(result);
         }
+
+        return result;
     }
 
     /**
@@ -1445,24 +1533,27 @@ class CalculationModelTest {
      * If second number is set, first should be saved before calculation for not to loose it.
      *
      * @param secondSet if true calculation should be made on second number, otherwise on first.
-     * @throws OverflowException     while validation for result is failed.
-     * @throws NegativeRootException if trying to divide inverse zero.
-     * @throws DivideByZeroException if trying to divide inverse zero.
+     * @throws OverflowException     if this exception was thrown during calculation.
+     * @throws NegativeRootException if this exception was thrown during calculation.
+     * @throws DivideByZeroException if this exception was thrown during calculation.
      */
-    private void doUnary(boolean secondSet, UnaryOperation operation) throws OverflowException, NegativeRootException,
+    private BigDecimal doUnary(boolean secondSet, UnaryOperation operation) throws OverflowException, NegativeRootException,
             DivideByZeroException {
+        BigDecimal result;
         if (secondSet) {
-            calculation.calculateUnary(calculation.getSecond(), operation);
-            calculation.setSecond(calculation.getResult());
+            result = calculation.calculateUnary(calculation.getSecond(), operation);
+            calculation.setSecond(result);
         } else {
-            calculation.calculateUnary(calculation.getFirst(), operation);
+            result = calculation.calculateUnary(calculation.getFirst(), operation);
 
             if (calculation.getBinaryOperation() == null) {
-                calculation.setFirst(calculation.getResult());
+                calculation.setFirst(result);
             } else {
-                calculation.setSecond(calculation.getResult());
+                calculation.setSecond(result);
             }
         }
+
+        return result;
     }
 
     /**
@@ -1470,15 +1561,17 @@ class CalculationModelTest {
      * If second number is not set, first should be set as second.
      *
      * @param secondSet if false first number should be set as second.
-     * @throws OverflowException while validation for result is failed.
+     * @throws OverflowException if this exception was thrown during calculation.
      */
-    private void doPercent(boolean secondSet) throws OverflowException {
+    private BigDecimal doPercent(boolean secondSet) throws OverflowException {
         if (!secondSet) {
             calculation.setSecond(calculation.getFirst());
         }
 
-        calculation.calculatePercentage(calculation.getSecond());
-        calculation.setSecond(calculation.getResult());
+        BigDecimal result = calculation.calculatePercentage(calculation.getSecond());
+        calculation.setSecond(result);
+
+        return result;
     }
 
     /**
