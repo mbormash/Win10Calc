@@ -1,5 +1,7 @@
 package com.implemica.bormashenko.calculator.model;
 
+import com.implemica.bormashenko.calculator.model.enums.BinaryOperation;
+import com.implemica.bormashenko.calculator.model.enums.UnaryOperation;
 import com.implemica.bormashenko.calculator.model.exceptions.DivideByZeroException;
 import com.implemica.bormashenko.calculator.model.exceptions.DivideZeroByZeroException;
 import com.implemica.bormashenko.calculator.model.exceptions.NegativeRootException;
@@ -19,80 +21,59 @@ public class Demo {
 
     /**
      * Shows how model works.
-     * Demo equation is ((a² + (-b)) * c - (√d)) / (1/e)²
      *
      * @param args command line args.
-     * @throws OverflowException         if overflow exception was thrown during calculation.
-     * @throws NegativeRootException     if negative root exception was thrown during calculation.
-     * @throws DivideByZeroException     if divide by zero exception was thrown during calculation.
-     * @throws DivideZeroByZeroException if divide zero by zero exception was thrown during calculation.
      */
-    public static void main(String... args) throws OverflowException, NegativeRootException, DivideByZeroException,
-            DivideZeroByZeroException {
+    public static void main(String... args) {
 
         Calculation calculation = new Calculation();
         BigDecimal a = new BigDecimal("5");
         BigDecimal b = new BigDecimal("3");
-        BigDecimal c = new BigDecimal("7");
-        BigDecimal d = new BigDecimal("4");
-        BigDecimal e = new BigDecimal("5");
+        BigDecimal c = new BigDecimal("0");
+
+        UnaryOperation unary1 = SQR;
+        UnaryOperation unary2 = NEGATE;
+        UnaryOperation unary3 = SQRT;
+
+        BinaryOperation binary1 = ADD;
+        BinaryOperation binary2 = DIVIDE;
 
         BigDecimal result;
 
-        //calculate (a²) and set it as first.
-        result = calculation.calculateUnary(a, SQR);
-        calculation.setFirst(result);
+        try {
+            //calculate (unary1(a)) and set it as first.
+            result = calculation.calculateUnary(a, unary1);
+            calculation.setFirst(result);
 
-        System.out.println("Result of previous operation: " + result);
+            System.out.println("Result of previous operation: " + result);
 
-        //calculate (-b) and set it as second.
-        result = calculation.calculateUnary(b, NEGATE);
-        calculation.setSecond(result);
+            //calculate (unary2(b)) and set it as second.
+            result = calculation.calculateUnary(b, unary2);
+            calculation.setSecond(result);
 
-        System.out.println("Result of previous operation: " + result);
+            System.out.println("Result of previous operation: " + result);
 
-        //then calculate (a² + (-b))
-        calculation.setBinaryOperation(ADD);
-        result = calculation.calculateBinary();
+            //calculate (unary1(a) binary1 unary2(b))
+            calculation.setBinaryOperation(binary1);
+            result = calculation.calculateBinary();
 
-        System.out.println("Result of previous operation: " + result);
+            System.out.println("Result of previous operation: " + result);
 
-        //then multiply previous result on c
-        calculation.setFirst(result);
-        calculation.setSecond(c);
-        calculation.setBinaryOperation(MULTIPLY);
-        result = calculation.calculateBinary();
+            //set previous result as first, calculate (unary3(c)) and set it as second.
+            calculation.setFirst(result);
+            result = calculation.calculateUnary(c, unary3);
+            calculation.setSecond(result);
 
-        System.out.println("Result of previous operation: " + result);
+            System.out.println("Result of previous operation: " + result);
 
-        //set previous result as first, calculate (√d) and set it as second.
-        calculation.setFirst(result);
-        result = calculation.calculateUnary(d, SQRT);
-        calculation.setSecond(result);
+            //calculate ((unary1(a) binary1 unary2(b)) binary2 unary3(c))
+            calculation.setBinaryOperation(binary2);
+            result = calculation.calculateBinary();
 
-        System.out.println("Result of previous operation: " + result);
-
-        //then subtract result of (√d) from result of ((a² + (-b)) * c).
-        calculation.setBinaryOperation(SUBTRACT);
-        result = calculation.calculateBinary();
-
-        System.out.println("Result of previous operation: " + result);
-
-        //set previous result as first, calculate ((1/e)²) and set it as second.
-        calculation.setFirst(result);
-        result = calculation.calculateUnary(e, INVERSE);
-        result = calculation.calculateUnary(result, SQR);
-        calculation.setSecond(result);
-
-        System.out.println("Result of previous operation: " + result);
-
-        calculation.setFirst(BigDecimal.ONE);
-        calculation.setSecond(BigDecimal.ZERO);
-        //then divide result of ((a² + (-b)) * c - (√d)) by result of (1/e)².
-        calculation.setBinaryOperation(DIVIDE);
-        result = calculation.calculateBinary();
-
-        System.out.println("Result of previous operation: " + result);
+            System.out.println("Result of previous operation: " + result);
+        } catch (OverflowException | DivideByZeroException | DivideZeroByZeroException | NegativeRootException e) {
+            System.out.println("Result of previous operation: " + e.getMessage());
+        }
     }
 }
 
