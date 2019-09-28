@@ -2,11 +2,7 @@ package com.implemica.bormashenko.calculator.controller;
 
 import com.implemica.bormashenko.calculator.model.*;
 import com.implemica.bormashenko.calculator.model.enums.*;
-
-import com.implemica.bormashenko.calculator.model.exceptions.DivideByZeroException;
-import com.implemica.bormashenko.calculator.model.exceptions.DivideZeroByZeroException;
-import com.implemica.bormashenko.calculator.model.exceptions.NegativeRootException;
-import com.implemica.bormashenko.calculator.model.exceptions.OverflowException;
+import com.implemica.bormashenko.calculator.model.exceptions.*;
 import com.implemica.bormashenko.calculator.model.util.OverflowValidation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,6 +29,7 @@ import java.util.ResourceBundle;
 import java.util.Stack;
 import java.util.stream.Stream;
 
+import static com.implemica.bormashenko.calculator.controller.util.NumberEditor.*;
 import static com.implemica.bormashenko.calculator.controller.util.NumberFormatter.*;
 
 /**

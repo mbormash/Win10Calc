@@ -22,7 +22,7 @@ public class NumberFormatter {
     /**
      * Maximal amount of digit symbols that can be shown on screen {@code Label}.
      */
-    private final static int MAX_SYMBOLS = 16;
+    final static int MAX_SYMBOLS = 16;
 
     /**
      * Minimal value that can be shown on screen {@code Label} without using engineer representation.
@@ -75,11 +75,6 @@ public class NumberFormatter {
     private static final String ZERO = "0";
 
     /**
-     * {@code BigDecimal} value for appending new digit to decimal number.
-     */
-    private static final BigDecimal ONE_TENTH = new BigDecimal("0.1");
-
-    /**
      * Object for setting symbols for decimal formatter.
      */
     private static DecimalFormatSymbols symbols = new DecimalFormatSymbols();
@@ -89,81 +84,6 @@ public class NumberFormatter {
         symbols.setDecimalSeparator(DECIMAL_SEPARATOR);
         formatter.setDecimalFormatSymbols(symbols);
         formatter.setParseBigDecimal(true);
-    }
-
-    /**
-     * Appends digit to number if it's precision less than {@code MAX_SYMBOLS}.
-     * <p>
-     * For appending digit, math operations are used.
-     * <p>
-     * If number < 0, digit should be negated.
-     * <p>
-     * If dot should be prepended before digit, multiplies digit on 0.1 and adds it to number.
-     * <p>
-     * Otherwise, if number is 0 (with scale = 0), returns digit only.
-     * <p>
-     * Otherwise, if number does not have decimal part, multiplies number on 10 and adds digit to number.
-     * <p>
-     * Otherwise, multiplies digit on 0.1^(number's scale + 1) and adds it to number.
-     *
-     * @param number                number to edit.
-     * @param digit                 digit to append to number.
-     * @param prependDotBeforeDigit true if {@code DECIMAL_SEPARATOR} should be prepended before digit or false
-     *                              otherwise. It helps not to loose trailing {@code DECIMAL_SEPARATOR} in string
-     *                              representation of number while parsing it to {@code BigDecimal}.
-     * @return edited number if it was possible to edit.
-     */
-    public static BigDecimal appendDigitToNumber(BigDecimal number, BigDecimal digit, boolean prependDotBeforeDigit) {
-        BigDecimal result = number;
-
-        if (number.precision() < MAX_SYMBOLS) {
-
-            if (number.signum() < 0) {
-                digit = digit.negate();
-            }
-
-            if (prependDotBeforeDigit) {
-                digit = digit.multiply(ONE_TENTH);
-                result = number.add(digit);
-            } else if (number.equals(BigDecimal.ZERO)) {
-                result = digit;
-            } else if (number.scale() == 0) {
-                result = number.multiply(BigDecimal.TEN).add(digit);
-            } else {
-                digit = digit.multiply(ONE_TENTH.pow(number.scale() + 1));
-                result = result.add(digit);
-            }
-        }
-
-        return result;
-    }
-
-    /**
-     * Deletes last digit in number.
-     * <p>
-     * Otherwise, if number is one-digit number, returns 0.
-     * <p>
-     * Otherwise, if number does not have decimal part, divides in by 10 and sets scale of result to 0.
-     * <p>
-     * Otherwise, reduces number's scale by 1.
-     *
-     * @param number number to edit.
-     * @return edited number.
-     */
-    public static BigDecimal deleteLastDigit(BigDecimal number) {
-        BigDecimal result = number;
-
-        if (number.precision() == 1) {
-            result = BigDecimal.ZERO;
-        } else if (number.scale() == 0) {
-            result = number.divide(BigDecimal.TEN, BigDecimal.ROUND_DOWN);
-            result = result.setScale(0, BigDecimal.ROUND_DOWN);
-        } else {
-            result = result.setScale(result.scale() - 1, BigDecimal.ROUND_DOWN);
-        }
-
-
-        return result;
     }
 
     /**

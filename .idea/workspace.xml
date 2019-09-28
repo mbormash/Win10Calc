@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="">
+    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="Updating demo.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/util/NumberEditor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/controller/NumberEditorTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/util/NumberFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/util/NumberFormatter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/controller/NumberFormatterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/controller/NumberFormatterTest.java" afterDir="false" />
     </list>
     <list id="82383ff1-c5f9-4fe0-897c-6d65fbc9d833" name="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;" comment="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;&#10;&#10;This reverts commit 7729eaa4" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,7 +97,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Demo">
+  <component name="RunManager" selected="JUnit.NumberFormatterTest">
     <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.implemica.bormashenko.calculator.model.Demo" />
       <module name="Win10Calc" />
@@ -131,7 +140,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerTest.clearTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NumberEditorTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Win10Calc" />
       <extension name="coverage">
         <pattern>
@@ -140,14 +149,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests.controller" />
-      <option name="MAIN_CLASS_NAME" value="tests.controller.ControllerTest" />
-      <option name="METHOD_NAME" value="clearTests" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="tests.controller.NumberEditorTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerTest.negateTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NumberFormatterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Win10Calc" />
       <extension name="coverage">
         <pattern>
@@ -156,9 +164,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests.controller" />
-      <option name="MAIN_CLASS_NAME" value="tests.controller.ControllerTest" />
-      <option name="METHOD_NAME" value="negateTests" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="tests.controller.NumberFormatterTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,17 +173,17 @@
     <list>
       <item itemvalue="Application.Launcher" />
       <item itemvalue="JUnit.ControllerTest.allTests" />
-      <item itemvalue="JUnit.ControllerTest.clearTests" />
-      <item itemvalue="JUnit.ControllerTest.negateTests" />
       <item itemvalue="Application.Demo" />
+      <item itemvalue="JUnit.NumberEditorTests" />
+      <item itemvalue="JUnit.NumberFormatterTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NumberFormatterTest" />
+        <item itemvalue="JUnit.NumberEditorTests" />
+        <item itemvalue="Application.Launcher" />
         <item itemvalue="Application.Demo" />
         <item itemvalue="JUnit.ControllerTest.allTests" />
-        <item itemvalue="Application.Launcher" />
-        <item itemvalue="JUnit.ControllerTest.negateTests" />
-        <item itemvalue="JUnit.ControllerTest.clearTests" />
       </list>
     </recent_temporary>
   </component>
@@ -190,13 +197,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
-    </task>
-    <task id="LOCAL-00191" summary="Demo test case moved to another class.">
-      <created>1568644025509</created>
-      <option name="number" value="00191" />
-      <option name="presentableId" value="LOCAL-00191" />
-      <option name="project" value="LOCAL" />
-      <updated>1568644025509</updated>
     </task>
     <task id="LOCAL-00192" summary="Refactoring model tests so it is now easier to understand. Test cases for add and subtract operation changed.">
       <created>1568646289249</created>
@@ -534,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569618506092</updated>
     </task>
-    <option name="localTasksCounter" value="240" />
+    <task id="LOCAL-00240" summary="Updating demo.">
+      <created>1569630748521</created>
+      <option name="number" value="00240" />
+      <option name="presentableId" value="LOCAL-00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1569630748521</updated>
+    </task>
+    <option name="localTasksCounter" value="241" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -568,7 +575,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Refactoring tests for controller." />
     <MESSAGE value="Changing model's exceptions' logic." />
     <MESSAGE value="Demo test case for model for exception created." />
     <MESSAGE value="Returning clone of collection instead of origin in memory." />
@@ -593,7 +599,8 @@
     <MESSAGE value="Updating model so it is easier to work with it." />
     <MESSAGE value="Refactoring controller." />
     <MESSAGE value="Updating model so result field is not exist now." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating model so result field is not exist now." />
+    <MESSAGE value="Updating demo." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating demo." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
