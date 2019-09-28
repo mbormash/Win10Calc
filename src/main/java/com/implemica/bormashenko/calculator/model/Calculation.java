@@ -133,6 +133,7 @@ public class Calculation {
     /**
      * Calculates result using first value and {@link UnaryOperation}.
      *
+     * @param number         number to work with.
      * @param unaryOperation operation to perform.
      * @return result of operation.
      * @throws OverflowException     while validation for result is failed.
