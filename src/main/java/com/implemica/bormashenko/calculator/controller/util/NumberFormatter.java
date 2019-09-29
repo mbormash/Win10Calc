@@ -75,6 +75,11 @@ public class NumberFormatter {
     private static final String ZERO = "0";
 
     /**
+     * Regex for checking that second char of unsigned number is {@code DECIMAL_EXPONENT_SEPARATOR}.
+     */
+    private static final String SECOND_CHAR_EXPONENT_REGEX = "-?\\d" + DECIMAL_EXPONENT_SEPARATOR + "\\+?-?\\d+";
+
+    /**
      * Object for setting symbols for decimal formatter.
      */
     private static DecimalFormatSymbols symbols = new DecimalFormatSymbols();
@@ -209,7 +214,7 @@ public class NumberFormatter {
      * @return corrected number if it was necessary to correct.
      */
     private static String finalFormat(String number, int trailingZeros) {
-        if (isSecondCharEngineer(number)) {
+        if (isSecondCharExponent(number)) {
             number = number.replace(DECIMAL_EXPONENT_SEPARATOR,
                     DECIMAL_SEPARATOR + DECIMAL_EXPONENT_SEPARATOR);
         }
@@ -241,8 +246,8 @@ public class NumberFormatter {
      * @param formattedNumber formatted number to check.
      * @return true if second char of unsigned number is {@code EXPONENT_SEPARATOR} or false otherwise.
      */
-    private static boolean isSecondCharEngineer(String formattedNumber) {
-        return formattedNumber.matches("-?\\d" + DECIMAL_EXPONENT_SEPARATOR + "\\+?-?\\d+");
+    private static boolean isSecondCharExponent(String formattedNumber) {
+        return formattedNumber.matches(SECOND_CHAR_EXPONENT_REGEX);
     }
 
     /**

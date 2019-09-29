@@ -191,13 +191,6 @@
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
     </task>
-    <task id="LOCAL-00195" summary="Mock for several binary operations in a row made.">
-      <created>1568730292323</created>
-      <option name="number" value="00195" />
-      <option name="presentableId" value="LOCAL-00195" />
-      <option name="project" value="LOCAL" />
-      <updated>1568730292323</updated>
-    </task>
     <task id="LOCAL-00196" summary="Simplifying and refactoring tests for model for binary operation.">
       <created>1568808039326</created>
       <option name="number" value="00196" />
@@ -534,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569716665112</updated>
     </task>
-    <option name="localTasksCounter" value="244" />
+    <task id="LOCAL-00244" summary="StringBuilder replaced by String where it was unnecessary to use.">
+      <created>1569717193492</created>
+      <option name="number" value="00244" />
+      <option name="presentableId" value="LOCAL-00244" />
+      <option name="project" value="LOCAL" />
+      <updated>1569717193493</updated>
+    </task>
+    <option name="localTasksCounter" value="245" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -568,7 +568,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Equals method for big decimals replaced by compare to method." />
     <MESSAGE value="Symbols for equation label removed from model to controller." />
     <MESSAGE value="Controller's logic does not depend on view anymore." />
     <MESSAGE value="For each loop replaced by for each method from stream api" />
@@ -593,7 +592,8 @@
     <MESSAGE value="Append digit and remove last digit methods removed from NumberFormatter to NumberEditor." />
     <MESSAGE value="Updating javadocs." />
     <MESSAGE value="Refactoring delete last digit method in number editor." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring delete last digit method in number editor." />
+    <MESSAGE value="StringBuilder replaced by String where it was unnecessary to use." />
+    <option name="LAST_COMMIT_MESSAGE" value="StringBuilder replaced by String where it was unnecessary to use." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
