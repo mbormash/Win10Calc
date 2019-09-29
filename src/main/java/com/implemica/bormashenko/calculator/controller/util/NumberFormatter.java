@@ -92,20 +92,84 @@ public class NumberFormatter {
     }
 
     /**
-     * Formats number using {@link DecimalFormat}.
+     * Formats a number using {@link DecimalFormat}.
      * <p>
-     * If number is less than {@code MIN_PLAIN_VALUE} and it's scale is more than {@code MAX_SYMBOLS}, shows number with
-     * one-digit integer part and {@code MAX_SYMBOLS}-digits decimal part in engineer representation.
+     * Result of formatting depends on a number's scale and precision. If number is less than {@code MIN_PLAIN_VALUE}
+     * and it's scale more than {@code MAX_SYMBOLS}, number should be shown with exponent. The similar formatting is
+     * used if length of integer part is more than {@code MAX_SYMBOLS}. Otherwise, whole integer part should be shown
+     * and decimal part should be shown unless the whole number length is less than {@code MAX_SYMBOLS}. Note that
+     * number's scale should be set to the {@code MAX_SYMBOLS} value.
      * <p>
-     * The same pattern applied if integer part of number contains more than {@code MAX_SYMBOLS} digits and scale is non
-     * positive or more than {@code MAX_SYMBOLS}.
-     * <p>
-     * If integer part of number contains more than {@code MAX_SYMBOLS} digits and its scale is between 0 and
-     * {@code MAX_SYMBOLS}, shows number with one-digit integer part and scale-digits decimal part in engineer
-     * representation.
-     * <p>
-     * If number contains less than {@code MAX_SYMBOLS} or the same number of digits, shows number in usual way with
-     * {@code GROUPING_SEPARATOR}.
+     * Examples:
+     * <ul>
+     *   <li>
+     *       If number is less than {@code MIN_PLAIN_VALUE} and it's scale more than {@code MAX_SYMBOLS}: <br>
+     *       <ul>
+     *           <li>
+     *              {@code formatNumber(0.00000000000000001, true) == 1.e-17}; and
+     *              {@code formatNumber(0.00000000000000001, false) == 1.e-17}
+     *           </li>
+     *           <li>
+     *              {@code formatNumber(0.00000000123456789, true) == 1.23456789.e-9}; and
+     *              {@code formatNumber(0.00000000123456789, false) == 1.23456789.e-9}
+     *           </li>
+     *           <li>
+     *              {@code formatNumber(0.00000000123456789123456789, true) == 1.234567891234568.e-9}; and
+     *              {@code formatNumber(0.00000000123456789123456789, false) == 1.234567891234568.e-9}
+     *           </li>
+     *       </ul>
+     *    </li>
+     *   <li>
+     *       If length of integer part is more than {@code MAX_SYMBOLS}: <br>
+     *       <ul>
+     *           <li>
+     *              {@code formatNumber(10000000000000000, true) == 1.e+16}; and
+     *              {@code formatNumber(10000000000000000, false) == 1.e+16}
+     *           </li>
+     *           <li>
+     *              {@code formatNumber(111222333444555666777888999, true) == 1.112223334445557.e+26}; and
+     *              {@code formatNumber(111222333444555666777888999, false) == 1.112223334445557.e+26}
+     *           </li>
+     *       </ul>
+     *    </li>
+     * <li>
+     *       Otherwise: <br>
+     *       <ul>
+     *           <li>
+     *              {@code formatNumber(123, true) == 123}; and
+     *              {@code formatNumber(123, false) == 123}
+     *           </li>
+     *           <li>
+     *              {@code formatNumber(1234, true) == 1,234}; and
+     *              {@code formatNumber(1234, false) == 1234}
+     *           </li>
+     *           <li>
+     *              {@code formatNumber(123456, true) == 123,456}; and
+     *              {@code formatNumber(123456, false) == 123456}
+     *           </li>
+     *           <li>
+     *              {@code formatNumber(1234567890, true) == 1,234,567,890}; and
+     *              {@code formatNumber(1234567890, false) == 1234567890}
+     *           </li>
+     *           <li>
+     *              {@code formatNumber(123.123456, true) == 123.123456}; and
+     *              {@code formatNumber(123.123456, false) == 123.123456}
+     *           </li>
+     *           <li>
+     *              {@code formatNumber(1234567.123456, true) == 1,234,567.123456}; and
+     *              {@code formatNumber(1234567.123456, false) == 1234567.123456}
+     *           </li>
+     *           <li>
+     *              {@code formatNumber(1.2345678901234567, true) == 1.234567890123457}; and
+     *              {@code formatNumber(1.2345678901234567, false) == 1.2345678901234567}
+     *           </li>
+     *           <li>
+     *              {@code formatNumber(12345678.12345678222222222, true) == 12,345,678.12345678}; and
+     *              {@code formatNumber(12345678.12345678222222222, false) == 12345678.12345678}
+     *           </li>
+     *        </ul>
+     *    </li>
+     * </ul>
      *
      * @param number      number to format.
      * @param useGrouping true if {@code GROUPING_SEPARATOR} should be used or false otherwise.
@@ -173,9 +237,38 @@ public class NumberFormatter {
     /**
      * Parses string number obtained by formatter to {@code BigDecimal}.
      * <p>
-     * If number is engineer, creates new {@code BigDecimal} object using this number.
+     * Before parsing {@code INTEGER_EXPONENT_SEPARATOR} should be set as exponent separator for {@code DecimalFormatter}
+     * if number contains it, otherwise should be {@code DECIMAL_EXPONENT_SEPARATOR}.
      * <p>
-     * Otherwise, parses it using {@code DecimalFormatter}.
+     * Examples:
+     * <ul>
+     *     <li>
+     *       {@code parseToBigDecimal("123") == new BigDecimal("123456")}
+     *      </li>
+     *      <li>
+     *       {@code parseToBigDecimal("123456") == new BigDecimal("123456")}; and
+     *       {@code parseToBigDecimal("123,456") == new BigDecimal("123456")}
+     *      </li>
+     *      <li>
+     *       {@code parseToBigDecimal("123.123456") == new BigDecimal("123.123456")}
+     *      </li>
+     *      <li>
+     *       {@code parseToBigDecimal("123456.123456") == new BigDecimal("123456.123456")}; and
+     *       {@code parseToBigDecimal("123,456.123456") == new BigDecimal("123456.123456")}
+     *      </li>
+     *      <li>
+     *       {@code parseToBigDecimal("1.e+16") == new BigDecimal("1.e+16")}
+     *      </li>
+     *      <li>
+     *       {@code parseToBigDecimal("1.e-16") == new BigDecimal("1.e-16")}
+     *      </li>
+     *      <li>
+     *       {@code parseToBigDecimal("1.23456e+20") == new BigDecimal("1.23456e+20")}
+     *      </li>
+     *      <li>
+     *       {@code parseToBigDecimal("1.23456e-20") == new BigDecimal("1.23456e-20")}
+     *      </li>
+     * </ul>
      *
      * @param number number to edit.
      * @return edited number if it was necessary to edit.
