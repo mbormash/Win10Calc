@@ -39,6 +39,11 @@ public class NumberEditor {
      * @return edited number if it was possible to edit.
      */
     public static BigDecimal appendDigitToNumber(BigDecimal number, BigDecimal digit, boolean prependDotBeforeDigit) {
+        //note that exactly equals method should be used there cause does matter scale of number
+        if (number.equals(BigDecimal.ZERO)) {
+            return digit;
+        }
+
         BigDecimal result = number;
 
         if (number.precision() < MAX_SYMBOLS) {
@@ -47,17 +52,20 @@ public class NumberEditor {
                 digit = digit.negate();
             }
 
+            BigDecimal multiplyDigitBy = BigDecimal.ONE;
+            BigDecimal multiplyNumberBy = BigDecimal.ONE;
+
             if (prependDotBeforeDigit) {
-                digit = digit.multiply(ONE_TENTH);
-                result = number.add(digit);
-            } else if (number.equals(BigDecimal.ZERO)) {
-                result = digit;
+                multiplyDigitBy = ONE_TENTH;
             } else if (number.scale() == 0) {
-                result = number.multiply(BigDecimal.TEN).add(digit);
+                multiplyNumberBy = BigDecimal.TEN;
             } else {
-                digit = digit.multiply(ONE_TENTH.pow(number.scale() + 1));
-                result = result.add(digit);
+                multiplyDigitBy = ONE_TENTH.pow(number.scale() + 1);
             }
+
+            number = number.multiply(multiplyNumberBy);
+            digit = digit.multiply(multiplyDigitBy);
+            result = number.add(digit);
         }
 
         return result;

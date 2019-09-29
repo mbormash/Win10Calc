@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/util/NumberFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/util/NumberFormatter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/util/NumberEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/util/NumberEditor.java" afterDir="false" />
     </list>
     <list id="82383ff1-c5f9-4fe0-897c-6d65fbc9d833" name="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;" comment="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;&#10;&#10;This reverts commit 7729eaa4" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,7 +90,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.NumberFormatterTest">
+  <component name="RunManager" selected="JUnit.NumberEditorTests">
     <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.implemica.bormashenko.calculator.model.Demo" />
       <module name="Win10Calc" />
@@ -172,8 +172,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NumberFormatterTest" />
         <item itemvalue="JUnit.NumberEditorTests" />
+        <item itemvalue="JUnit.NumberFormatterTest" />
         <item itemvalue="Application.Launcher" />
         <item itemvalue="Application.Demo" />
         <item itemvalue="JUnit.ControllerTest.allTests" />
@@ -190,13 +190,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
-    </task>
-    <task id="LOCAL-00196" summary="Simplifying and refactoring tests for model for binary operation.">
-      <created>1568808039326</created>
-      <option name="number" value="00196" />
-      <option name="presentableId" value="LOCAL-00196" />
-      <option name="project" value="LOCAL" />
-      <updated>1568808039326</updated>
     </task>
     <task id="LOCAL-00197" summary="Javadocs for tests for model updated.">
       <created>1568808235093</created>
@@ -534,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569717193493</updated>
     </task>
-    <option name="localTasksCounter" value="245" />
+    <task id="LOCAL-00245" summary="Magic constant took out to constant field.">
+      <created>1569717510668</created>
+      <option name="number" value="00245" />
+      <option name="presentableId" value="LOCAL-00245" />
+      <option name="project" value="LOCAL" />
+      <updated>1569717510668</updated>
+    </task>
+    <option name="localTasksCounter" value="246" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -568,7 +568,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Symbols for equation label removed from model to controller." />
     <MESSAGE value="Controller's logic does not depend on view anymore." />
     <MESSAGE value="For each loop replaced by for each method from stream api" />
     <MESSAGE value="Refactoring keyboard handling." />
@@ -593,7 +592,8 @@
     <MESSAGE value="Updating javadocs." />
     <MESSAGE value="Refactoring delete last digit method in number editor." />
     <MESSAGE value="StringBuilder replaced by String where it was unnecessary to use." />
-    <option name="LAST_COMMIT_MESSAGE" value="StringBuilder replaced by String where it was unnecessary to use." />
+    <MESSAGE value="Magic constant took out to constant field." />
+    <option name="LAST_COMMIT_MESSAGE" value="Magic constant took out to constant field." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
