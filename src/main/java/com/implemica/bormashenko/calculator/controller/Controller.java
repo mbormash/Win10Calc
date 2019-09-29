@@ -322,7 +322,6 @@ public class Controller implements Initializable {
             if (buttonToFire != null && !isMemoryShown && !isNavigationShown) {
                 buttonToFire.fire();
             }
-
         } catch (Throwable e) {
             tellUserAboutError(e.getMessage());
         }
@@ -791,16 +790,16 @@ public class Controller implements Initializable {
      * @param message message got by exception or error.
      */
     private void tellUserAboutError(String message) {
-        resetAll();
-        memoryClearOperation();
-
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
         alert.setContentText("Unsupported error was thrown with message:\n" + message +
-                "\nApplication was reset to its primary.");
+                "\nApplication will be reset to its primary.");
 
         alert.showAndWait();
+
+        resetAll();
+        memoryClearOperation();
     }
 
     /**
