@@ -76,18 +76,21 @@ public class NumberEditor {
      * @return edited number.
      */
     public static BigDecimal deleteLastDigit(BigDecimal number) {
-        BigDecimal result = number;
-
         if (number.precision() == 1) {
-            result = BigDecimal.ZERO;
-        } else if (number.scale() == 0) {
-            result = number.divide(BigDecimal.TEN, BigDecimal.ROUND_DOWN);
-            result = result.setScale(0, BigDecimal.ROUND_DOWN);
-        } else {
-            result = result.setScale(result.scale() - 1, BigDecimal.ROUND_DOWN);
+            return BigDecimal.ZERO;
         }
 
+        BigDecimal result;
+        int newScale;
 
-        return result;
+        if (number.scale() == 0) {
+            result = number.divide(BigDecimal.TEN, BigDecimal.ROUND_DOWN);
+            newScale = 0;
+        } else {
+            result = number;
+            newScale = result.scale() - 1;
+        }
+
+        return result.setScale(newScale, BigDecimal.ROUND_DOWN);
     }
 }
