@@ -40,7 +40,7 @@ public class NumberEditor {
      */
     public static BigDecimal appendDigitToNumber(BigDecimal number, BigDecimal digit, boolean prependDotBeforeDigit) {
         //note that exactly equals method should be used there cause does matter scale of number
-        if (number.equals(BigDecimal.ZERO)) {
+        if (number.equals(BigDecimal.ZERO) && !prependDotBeforeDigit) {
             return digit;
         }
 
