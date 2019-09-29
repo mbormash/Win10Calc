@@ -122,37 +122,45 @@ public class NumberFormatter {
         int scale = numberToWorkWith.scale();
         int precision = numberToWorkWith.precision();
 
-        StringBuilder pattern;
+        String pattern;
 
         if (numberToWorkWith.abs().compareTo(MIN_PLAIN_VALUE) < 0 && scale > MAX_SYMBOLS) {
-            pattern = new StringBuilder(ZERO + DECIMAL_SEPARATOR + PATTERN_15_DIGITS + PATTERN_EXPONENT + ZERO);
+            pattern = ZERO + DECIMAL_SEPARATOR + PATTERN_15_DIGITS + PATTERN_EXPONENT + ZERO;
         } else {
             int integerPartLength = precision - scale;
 
             if (integerPartLength > MAX_SYMBOLS) {
-                pattern = new StringBuilder(ZERO + DECIMAL_SEPARATOR);
+                pattern = ZERO + DECIMAL_SEPARATOR;
 
                 if (scale > 0 && scale < MAX_SYMBOLS) {
+                    StringBuilder patternBuilder = new StringBuilder(scale);
+
                     for (int i = 0; i < scale; i++) {
-                        pattern.append(ZERO);
+                        patternBuilder.append(ZERO);
                     }
+
+                    pattern += patternBuilder;
                 } else {
-                    pattern.append(PATTERN_15_DIGITS);
+                    pattern += PATTERN_15_DIGITS;
                 }
 
-                pattern.append(PATTERN_EXPONENT + ZERO);
+                pattern += PATTERN_EXPONENT + ZERO;
             } else {
-                pattern = new StringBuilder(PATTERN_SPLIT_GROUP);
+                pattern = PATTERN_SPLIT_GROUP;
+
+                StringBuilder patternBuilder = new StringBuilder(MAX_SYMBOLS - integerPartLength);
 
                 for (int i = 0; i < MAX_SYMBOLS - integerPartLength; i++) {
-                    pattern.append(PATTERN_DIGIT);
+                    patternBuilder.append(PATTERN_DIGIT);
                 }
+
+                pattern += patternBuilder;
 
                 numberToWorkWith = numberToWorkWith.setScale(MAX_SYMBOLS, BigDecimal.ROUND_HALF_UP);
             }
         }
 
-        formatter.applyPattern(pattern.toString());
+        formatter.applyPattern(pattern);
         formatter.setGroupingUsed(useGrouping);
         return finalFormat(formatter.format(numberToWorkWith), trailingZeros);
     }
