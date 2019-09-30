@@ -214,15 +214,19 @@ public class NumberFormatter {
 
         setExponentSeparatorSymbol(numberToWorkWith.abs().compareTo(BigDecimal.ONE) >= 0);
 
-        int scale = numberToWorkWith.scale();
-        int precision = numberToWorkWith.precision();
-
         String pattern;
 
-        if (numberToWorkWith.abs().compareTo(MIN_PLAIN_VALUE) < 0 && scale > MAX_SYMBOLS) {
+        if (numberToWorkWith.abs().compareTo(MIN_PLAIN_VALUE) < 0 && numberToWorkWith.scale() > MAX_SYMBOLS) {
             pattern = ZERO + DECIMAL_SEPARATOR + PATTERN_15_DIGITS + PATTERN_EXPONENT + ZERO;
         } else {
+            int scale = numberToWorkWith.scale();
+            int precision = numberToWorkWith.precision();
             int integerPartLength = precision - scale;
+
+            numberToWorkWith = numberToWorkWith.setScale(MAX_SYMBOLS - integerPartLength, BigDecimal.ROUND_HALF_UP);
+            scale = numberToWorkWith.scale();
+            precision = numberToWorkWith.precision();
+            integerPartLength = precision - scale;
 
             if (integerPartLength > MAX_SYMBOLS) {
                 pattern = ZERO + DECIMAL_SEPARATOR;
@@ -250,8 +254,6 @@ public class NumberFormatter {
                 }
 
                 pattern += patternBuilder;
-
-                numberToWorkWith = numberToWorkWith.setScale(MAX_SYMBOLS, BigDecimal.ROUND_HALF_UP);
             }
         }
 
