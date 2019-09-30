@@ -323,7 +323,7 @@ public class Controller implements Initializable {
                 buttonToFire.fire();
             }
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -337,7 +337,7 @@ public class Controller implements Initializable {
             navigationBlock.setVisible(!isNavigationShown);
             isNavigationShown = !isNavigationShown;
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -349,7 +349,7 @@ public class Controller implements Initializable {
         try {
             moveTextInEquationLabel(leftArrow, rightArrow, true);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -361,7 +361,7 @@ public class Controller implements Initializable {
         try {
             moveTextInEquationLabel(rightArrow, leftArrow, false);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -382,7 +382,7 @@ public class Controller implements Initializable {
                 exceptionThrown(e.getMessage());
             }
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -401,7 +401,7 @@ public class Controller implements Initializable {
                 updateMemoryLabels();
             }
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -416,7 +416,7 @@ public class Controller implements Initializable {
 
             isEditableScreen = false;
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -446,7 +446,7 @@ public class Controller implements Initializable {
             setFlags(false, false, false,
                     false, isFirstSet, false, true);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -467,7 +467,7 @@ public class Controller implements Initializable {
                 exceptionThrown(e.getMessage());
             }
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -488,7 +488,7 @@ public class Controller implements Initializable {
                 exceptionThrown(e.getMessage());
             }
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -528,7 +528,7 @@ public class Controller implements Initializable {
             setFlags(true, false, false,
                     false, isFirstSet, false, false);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -564,7 +564,7 @@ public class Controller implements Initializable {
             setFlags(true, false, false,
                     false, isFirstSet, false, false);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -601,7 +601,7 @@ public class Controller implements Initializable {
                 screen.setText(screenText);
             }
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -620,7 +620,7 @@ public class Controller implements Initializable {
             setFlags(true, false, false,
                     false, isFirstSet, false, false);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -642,7 +642,7 @@ public class Controller implements Initializable {
             setFlags(true, false, false,
                     false, false, false, false);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -654,7 +654,7 @@ public class Controller implements Initializable {
         try {
             binaryOperationPressed(BinaryOperation.ADD);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -666,7 +666,7 @@ public class Controller implements Initializable {
         try {
             binaryOperationPressed(BinaryOperation.SUBTRACT);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -678,7 +678,7 @@ public class Controller implements Initializable {
         try {
             binaryOperationPressed(BinaryOperation.MULTIPLY);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -690,7 +690,7 @@ public class Controller implements Initializable {
         try {
             binaryOperationPressed(BinaryOperation.DIVIDE);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -719,7 +719,7 @@ public class Controller implements Initializable {
                 unaryOperationPressed(UnaryOperation.NEGATE);
             }
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -731,7 +731,7 @@ public class Controller implements Initializable {
         try {
             unaryOperationPressed(UnaryOperation.SQR);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -743,7 +743,7 @@ public class Controller implements Initializable {
         try {
             unaryOperationPressed(UnaryOperation.SQRT);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -755,7 +755,7 @@ public class Controller implements Initializable {
         try {
             unaryOperationPressed(UnaryOperation.INVERSE);
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -767,7 +767,7 @@ public class Controller implements Initializable {
         try {
             calculatePercentage();
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -779,7 +779,7 @@ public class Controller implements Initializable {
         try {
             calculateResult();
         } catch (Throwable e) {
-            tellUserAboutError(e.getMessage());
+            tellUserAboutError(e);
         }
     }
 
@@ -787,13 +787,15 @@ public class Controller implements Initializable {
      * Shows to user that something goes wrong.
      * Also resets application to its primary.
      *
-     * @param message message got by exception or error.
+     * @param e Throwable object that was thrown.
      */
-    private void tellUserAboutError(String message) {
+    private void tellUserAboutError(Throwable e) {
+        e.printStackTrace();
+
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
-        alert.setContentText("Unsupported error was thrown with message:\n" + message +
+        alert.setContentText("Unsupported error was thrown with message:\n" + e.getMessage() +
                 "\nApplication will be reset to its primary.");
 
         alert.showAndWait();
