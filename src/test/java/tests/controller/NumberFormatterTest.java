@@ -228,12 +228,12 @@ class NumberFormatterTest {
             checkFormat(new BigDecimal("-0.12465982153209520592805"), "-0.1246598215320952");
 
             //more than 17 digits (summary) and does not start with 0.
-            checkFormat(new BigDecimal("128419581095019580128.75019875"), "1.28419581e+20");
+            checkFormat(new BigDecimal("128419581095019580128.75019875"), "1.284195810950196e+20");
             checkFormat(new BigDecimal("128758.917509715091750128750175"), "128,758.9175097151");
             checkFormat(new BigDecimal("1235992.1347819991923816"), "1,235,992.134781999");
 
             checkFormat(new BigDecimal("-1312981740181908.0985023"), "-1,312,981,740,181,908");
-            checkFormat(new BigDecimal("-51351309848719847109847109.7431098471984"), "-5.1351309848720e+25");
+            checkFormat(new BigDecimal("-51351309848719847109847109.7431098471984"), "-5.135130984871985e+25");
             checkFormat(new BigDecimal("-124189579327598.4325798327592769"), "-124,189,579,327,598.4");
         }
 
@@ -315,6 +315,30 @@ class NumberFormatterTest {
             checkFormat(new BigDecimal("-6.71563e-1213"), "-6.71563e-1213");
             checkFormat(new BigDecimal("-9.744e-156"), "-9.744e-156");
         }
+    }
+
+    /**
+     * Tests for bounds for exponential form of number.
+     */
+    @Test
+    void boundaryFormatting() {
+        checkFormat(new BigDecimal("9999999999999999.4"), "9,999,999,999,999,999");
+        checkFormat(new BigDecimal("9999999999999999.5"), "1.e+16");
+        checkFormat(new BigDecimal("9999999999999999.6"), "1.e+16");
+
+        checkFormat(new BigDecimal("-9999999999999999.4"), "-9,999,999,999,999,999");
+        checkFormat(new BigDecimal("-9999999999999999.5"), "-1.e+16");
+        checkFormat(new BigDecimal("-9999999999999999.6"), "-1.e+16");
+
+        checkFormat(new BigDecimal("0.0000000000000001"), "0.0000000000000001");
+        checkFormat(new BigDecimal("0.00000000000000011"), "1.1e-16");
+        checkFormat(new BigDecimal("0.00000000000000012"), "1.2e-16");
+        checkFormat(new BigDecimal("0.00000000000000001"), "1.e-17");
+
+        checkFormat(new BigDecimal("-0.0000000000000001"), "-0.0000000000000001");
+        checkFormat(new BigDecimal("-0.00000000000000011"), "-1.1e-16");
+        checkFormat(new BigDecimal("-0.00000000000000012"), "-1.2e-16");
+        checkFormat(new BigDecimal("-0.00000000000000001"), "-1.e-17");
     }
 
     /**

@@ -13,6 +13,7 @@ import org.junit.Test;
 import util.RobotControl;
 
 import java.awt.*;
+import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -97,6 +98,7 @@ public class ControllerTest extends RobotControl {
 
         exceptionTests();
         boundaryTests();
+        boundaryFormattingTests();
     }
 
     /**
@@ -1205,6 +1207,30 @@ public class ControllerTest extends RobotControl {
         checkOverflowExceptionWithoutResetMemory("MR /10=");
         checkOverflowExceptionWithoutResetMemory("MR *0.01=");
         checkOverflowExceptionWithoutResetMemory("MR /100=");
+    }
+
+    /**
+     * Tests for bounds for exponential form of number.
+     */
+    @Test
+    public void boundaryFormattingTests() {
+        checkTyped("9999999999999999+0.4=", "9,999,999,999,999,999");
+        checkTyped("9999999999999999+0.5=", "1.e+16");
+        checkTyped("9999999999999999+0.6=", "1.e+16");
+
+        checkTyped("9neg999999999999999-0.4=", "-9,999,999,999,999,999");
+        checkTyped("9neg999999999999999-0.5=", "-1.e+16");
+        checkTyped("9neg999999999999999-0.6=", "-1.e+16");
+
+        checkTyped("0.0000000000000001", "0.0000000000000001");
+        checkTyped("0.1*0.1================ MS 0.0000000000000001+ MR =", "1.1e-16");
+        checkTyped("0.2*0.1================ MS 0.0000000000000001+ MR =", "1.2e-16");
+        checkTyped("0.0000000000000001*0.1=", "1.e-17");
+
+        checkTyped("0.0000000000000001neg", "-0.0000000000000001");
+        checkTyped("0.1neg*0.1================ MS 0.0000000000000001neg+ MR =", "-1.1e-16");
+        checkTyped("0.2neg*0.1================ MS 0.0000000000000001neg+ MR =", "-1.2e-16");
+        checkTyped("0.0000000000000001neg*0.1=", "-1.e-17");
     }
 
     /**
