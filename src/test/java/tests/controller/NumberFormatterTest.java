@@ -322,13 +322,17 @@ class NumberFormatterTest {
      */
     @Test
     void boundaryFormatting() {
-        checkFormat(new BigDecimal("9999999999999999.4"), "9,999,999,999,999,999");
+        checkFormat(new BigDecimal("9999999999999999.499999999999999999999999999999999999999999999999"),
+                "9,999,999,999,999,999");
         checkFormat(new BigDecimal("9999999999999999.5"), "1.e+16");
-        checkFormat(new BigDecimal("9999999999999999.6"), "1.e+16");
+        checkFormat(new BigDecimal("9999999999999999.5000000000000000000000000000000000000000000000001"),
+                "1.e+16");
 
-        checkFormat(new BigDecimal("-9999999999999999.4"), "-9,999,999,999,999,999");
+        checkFormat(new BigDecimal("-9999999999999999.499999999999999999999999999999999999999999999999"),
+                "-9,999,999,999,999,999");
         checkFormat(new BigDecimal("-9999999999999999.5"), "-1.e+16");
-        checkFormat(new BigDecimal("-9999999999999999.6"), "-1.e+16");
+        checkFormat(new BigDecimal("-9999999999999999.5000000000000000000000000000000000000000000000001"),
+                "-1.e+16");
 
         checkFormat(new BigDecimal("0.0000000000000001"), "0.0000000000000001");
         checkFormat(new BigDecimal("0.00000000000000011"), "1.1e-16");

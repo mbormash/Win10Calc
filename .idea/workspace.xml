@@ -4,11 +4,8 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/util/NumberFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/util/NumberFormatter.java" afterDir="false" />
+    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="Boundary tests for formatting number as plain string or engineer string created.">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/controller/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/controller/ControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/controller/NumberFormatterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/controller/NumberFormatterTest.java" afterDir="false" />
     </list>
     <list id="82383ff1-c5f9-4fe0-897c-6d65fbc9d833" name="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;" comment="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;&#10;&#10;This reverts commit 7729eaa4" />
@@ -94,7 +91,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ControllerTest.boundaryFormattingTests">
+  <component name="RunManager" selected="JUnit.NumberFormatterTest.boundaryFormatting">
     <configuration name="CalculationModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Win10Calc" />
       <extension name="coverage">
@@ -182,8 +179,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ControllerTest.boundaryFormattingTests" />
         <item itemvalue="JUnit.NumberFormatterTest.boundaryFormatting" />
+        <item itemvalue="JUnit.ControllerTest.boundaryFormattingTests" />
         <item itemvalue="JUnit.ControllerTest.allTests" />
         <item itemvalue="JUnit.NumberFormatterTest" />
         <item itemvalue="JUnit.CalculationModelTest" />
@@ -200,27 +197,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
-    </task>
-    <task id="LOCAL-00202" summary="Several boundary test cases created.">
-      <created>1568905732477</created>
-      <option name="number" value="00202" />
-      <option name="presentableId" value="LOCAL-00202" />
-      <option name="project" value="LOCAL" />
-      <updated>1568905732478</updated>
-    </task>
-    <task id="LOCAL-00203" summary="Overflow validation is utility class now.">
-      <created>1569250184315</created>
-      <option name="number" value="00203" />
-      <option name="presentableId" value="LOCAL-00203" />
-      <option name="project" value="LOCAL" />
-      <updated>1569250184315</updated>
-    </task>
-    <task id="LOCAL-00204" summary="Overflow validation refactored.">
-      <created>1569250503454</created>
-      <option name="number" value="00204" />
-      <option name="presentableId" value="LOCAL-00204" />
-      <option name="project" value="LOCAL" />
-      <updated>1569250503454</updated>
     </task>
     <task id="LOCAL-00205" summary="Overflow validation is util class now.">
       <created>1569250638109</created>
@@ -544,7 +520,28 @@
       <option name="project" value="LOCAL" />
       <updated>1569851805554</updated>
     </task>
-    <option name="localTasksCounter" value="251" />
+    <task id="LOCAL-00251" summary="Bug fix with formatting numbers with 16 digits in integer part and scale != 0">
+      <created>1569859370190</created>
+      <option name="number" value="00251" />
+      <option name="presentableId" value="LOCAL-00251" />
+      <option name="project" value="LOCAL" />
+      <updated>1569859370190</updated>
+    </task>
+    <task id="LOCAL-00252" summary="Boundary tests for formatting number as plain string or engineer string created.">
+      <created>1569859437146</created>
+      <option name="number" value="00252" />
+      <option name="presentableId" value="LOCAL-00252" />
+      <option name="project" value="LOCAL" />
+      <updated>1569859437147</updated>
+    </task>
+    <task id="LOCAL-00253" summary="Removing unnecessary imports.">
+      <created>1569859484975</created>
+      <option name="number" value="00253" />
+      <option name="presentableId" value="LOCAL-00253" />
+      <option name="project" value="LOCAL" />
+      <updated>1569859484975</updated>
+    </task>
+    <option name="localTasksCounter" value="254" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -578,9 +575,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Demo test case for unary operations created." />
-    <MESSAGE value="Unsupported by model exceptions and errors are now tell user about themselves if appearing." />
-    <MESSAGE value="Refactoring overflow validation." />
     <MESSAGE value="Append digit method in number formatter was edited." />
     <MESSAGE value="Append dot method in number formatter was edited." />
     <MESSAGE value="Delete last digit method in number formatter was edited." />
@@ -603,7 +597,10 @@
     <MESSAGE value="Bug fix with appending digit after dot." />
     <MESSAGE value="Added examples to javadoc. Validation added to append digit method." />
     <MESSAGE value="Javadoc updated." />
-    <option name="LAST_COMMIT_MESSAGE" value="Javadoc updated." />
+    <MESSAGE value="Bug fix with formatting numbers with 16 digits in integer part and scale != 0" />
+    <MESSAGE value="Boundary tests for formatting number as plain string or engineer string created." />
+    <MESSAGE value="Removing unnecessary imports." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removing unnecessary imports." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
