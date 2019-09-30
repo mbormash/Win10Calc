@@ -1458,7 +1458,6 @@ class CalculationModelTest {
         calculation.resetAll();
         calculation.setFirst(new BigDecimal(args[0]));
         boolean secondSet = false;
-
         BigDecimal result = BigDecimal.ZERO;
 
         for (int i = 1; i < args.length; i++) {
@@ -1501,7 +1500,7 @@ class CalculationModelTest {
                 result = doBinary(true);
                 secondSet = false;
             } else {
-                throw new IllegalArgumentException("Expected: binary operation or number. Got: " + args[i]);
+                throw new IllegalArgumentException("Expected: operation or number. Got: " + args[i]);
             }
         }
 
