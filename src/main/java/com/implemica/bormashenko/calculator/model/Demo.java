@@ -47,6 +47,7 @@ public class Demo {
         BigDecimal result = BigDecimal.ZERO;
 
         try {
+
             for (int i = 1; i < equation.size(); i++) {
 
                 if (equation.get(i) instanceof BigDecimal) {
