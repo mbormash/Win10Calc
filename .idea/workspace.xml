@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="Boundary tests for formatting number as plain string or engineer string created.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/controller/NumberFormatterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/controller/NumberFormatterTest.java" afterDir="false" />
     </list>
@@ -197,13 +198,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
-    </task>
-    <task id="LOCAL-00205" summary="Overflow validation is util class now.">
-      <created>1569250638109</created>
-      <option name="number" value="00205" />
-      <option name="presentableId" value="LOCAL-00205" />
-      <option name="project" value="LOCAL" />
-      <updated>1569250638109</updated>
     </task>
     <task id="LOCAL-00206" summary="Refactoring tests for model.">
       <created>1569250677794</created>
@@ -541,7 +535,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569859484975</updated>
     </task>
-    <option name="localTasksCounter" value="254" />
+    <task id="LOCAL-00254" summary="Updating test cases.">
+      <created>1569860018043</created>
+      <option name="number" value="00254" />
+      <option name="presentableId" value="LOCAL-00254" />
+      <option name="project" value="LOCAL" />
+      <updated>1569860018043</updated>
+    </task>
+    <option name="localTasksCounter" value="255" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -575,7 +576,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Append digit method in number formatter was edited." />
     <MESSAGE value="Append dot method in number formatter was edited." />
     <MESSAGE value="Delete last digit method in number formatter was edited." />
     <MESSAGE value="Change sign method in number formatter was edited." />
@@ -600,7 +600,8 @@
     <MESSAGE value="Bug fix with formatting numbers with 16 digits in integer part and scale != 0" />
     <MESSAGE value="Boundary tests for formatting number as plain string or engineer string created." />
     <MESSAGE value="Removing unnecessary imports." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removing unnecessary imports." />
+    <MESSAGE value="Updating test cases." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating test cases." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
