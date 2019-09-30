@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/model/CalculationModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/model/CalculationModelTest.java" afterDir="false" />
     </list>
     <list id="82383ff1-c5f9-4fe0-897c-6d65fbc9d833" name="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;" comment="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;&#10;&#10;This reverts commit 7729eaa4" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -197,20 +195,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
-    </task>
-    <task id="LOCAL-00208" summary="Bug fixes in controller with stored and returned from memory value.">
-      <created>1569250794193</created>
-      <option name="number" value="00208" />
-      <option name="presentableId" value="LOCAL-00208" />
-      <option name="project" value="LOCAL" />
-      <updated>1569250794193</updated>
-    </task>
-    <task id="LOCAL-00209" summary="Bug fix with rounded number in controller that does not cause overflow exception.">
-      <created>1569251525217</created>
-      <option name="number" value="00209" />
-      <option name="presentableId" value="LOCAL-00209" />
-      <option name="project" value="LOCAL" />
-      <updated>1569251525218</updated>
     </task>
     <task id="LOCAL-00210" summary="Overflow validation is utility class now.">
       <created>1569251591753</created>
@@ -541,7 +525,21 @@
       <option name="project" value="LOCAL" />
       <updated>1569861650106</updated>
     </task>
-    <option name="localTasksCounter" value="257" />
+    <task id="LOCAL-00257" summary="Code refactoring.">
+      <created>1569868956153</created>
+      <option name="number" value="00257" />
+      <option name="presentableId" value="LOCAL-00257" />
+      <option name="project" value="LOCAL" />
+      <updated>1569868956154</updated>
+    </task>
+    <task id="LOCAL-00258" summary="Demo edited.">
+      <created>1569868975345</created>
+      <option name="number" value="00258" />
+      <option name="presentableId" value="LOCAL-00258" />
+      <option name="project" value="LOCAL" />
+      <updated>1569868975346</updated>
+    </task>
+    <option name="localTasksCounter" value="259" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -575,8 +573,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Delete last digit method in number formatter was edited." />
-    <MESSAGE value="Change sign method in number formatter was edited." />
     <MESSAGE value="Demo was moved to model package and updated to became dynamically changeable." />
     <MESSAGE value="Bug fix in controller with formatting number." />
     <MESSAGE value="Refactoring number formatter." />
@@ -600,7 +596,9 @@
     <MESSAGE value="Removing unnecessary imports." />
     <MESSAGE value="Updating test cases." />
     <MESSAGE value="Boris's remarks." />
-    <option name="LAST_COMMIT_MESSAGE" value="Boris's remarks." />
+    <MESSAGE value="Code refactoring." />
+    <MESSAGE value="Demo edited." />
+    <option name="LAST_COMMIT_MESSAGE" value="Demo edited." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
