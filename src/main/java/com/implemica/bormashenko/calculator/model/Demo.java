@@ -8,6 +8,8 @@ import com.implemica.bormashenko.calculator.model.exceptions.NegativeRootExcepti
 import com.implemica.bormashenko.calculator.model.exceptions.OverflowException;
 
 import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
 
 import static com.implemica.bormashenko.calculator.model.enums.BinaryOperation.*;
 import static com.implemica.bormashenko.calculator.model.enums.UnaryOperation.*;
@@ -31,6 +33,14 @@ public class Demo {
         BigDecimal b = new BigDecimal("3");
         BigDecimal c = new BigDecimal("0");
 
+        List<Object> operations = new LinkedList();
+
+        //even numbers: BigDecimal
+        //odd numbers: operation (binary or unary)
+
+        //decimal operation decimal operation decimal operation decimal operation = .....
+
+
         UnaryOperation unary1 = SQR;
         UnaryOperation unary2 = NEGATE;
         UnaryOperation unary3 = SQRT;
@@ -45,34 +55,35 @@ public class Demo {
             result = calculation.calculateUnary(a, unary1);
             calculation.setFirst(result);
 
-            System.out.println("Result of previous operation: " + result);
+
 
             //calculate (unary2(b)) and set it as second.
             result = calculation.calculateUnary(b, unary2);
             calculation.setSecond(result);
 
-            System.out.println("Result of previous operation: " + result);
+
 
             //calculate (unary1(a) binary1 unary2(b))
             calculation.setBinaryOperation(binary1);
             result = calculation.calculateBinary();
 
-            System.out.println("Result of previous operation: " + result);
+
 
             //set previous result as first, calculate (unary3(c)) and set it as second.
             calculation.setFirst(result);
             result = calculation.calculateUnary(c, unary3);
             calculation.setSecond(result);
 
-            System.out.println("Result of previous operation: " + result);
+
 
             //calculate ((unary1(a) binary1 unary2(b)) binary2 unary3(c))
+//            calculation.setSecond(BigDecimal.ZERO);
             calculation.setBinaryOperation(binary2);
             result = calculation.calculateBinary();
 
-            System.out.println("Result of previous operation: " + result);
+            System.out.println("Result of operations: " + result);
         } catch (OverflowException | DivideByZeroException | DivideZeroByZeroException | NegativeRootException e) {
-            System.out.println("Result of previous operation: " + e.getMessage());
+            System.out.println("Result of operations: " + e.getMessage());
         }
     }
 }
