@@ -37,7 +37,7 @@ public class Demo {
         equation.add(new BigDecimal("3"));
         equation.add(NEGATE);
         equation.add(DIVIDE);
-        equation.add(new BigDecimal("4"));
+        equation.add(new BigDecimal("0"));
         equation.add(SQRT);
         equation.add("=");
 
@@ -47,7 +47,6 @@ public class Demo {
         BigDecimal result = BigDecimal.ZERO;
 
         try {
-
             for (int i = 1; i < equation.size(); i++) {
 
                 if (equation.get(i) instanceof BigDecimal) {
@@ -66,7 +65,7 @@ public class Demo {
 
                     result = calculation.calculateBinary();
                 } else {
-                    throw new IllegalArgumentException("Expected: binary operation or number. Got: " + args[i]);
+                    throw new IllegalArgumentException("Expected: binary operation or number. Got: " + equation.get(i));
                 }
             }
 
