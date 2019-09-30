@@ -106,15 +106,21 @@ public class NumberFormatter {
      *       If number is less than {@code MIN_PLAIN_VALUE} and it's scale more than {@code MAX_SYMBOLS}: <br>
      *       <ul>
      *           <li>
-     *              {@code formatNumber(0.00000000000000001, true) == 1.e-17}; and
+     *              {@code formatNumber(0.00000000000000001, true) == 1.e-17}; and <br>
+     *           </li>
+     *           <li>
      *              {@code formatNumber(0.00000000000000001, false) == 1.e-17}
      *           </li>
      *           <li>
-     *              {@code formatNumber(0.00000000123456789, true) == 1.23456789.e-9}; and
+     *              {@code formatNumber(0.00000000123456789, true) == 1.23456789.e-9}; and <br>
+     *           </li>
+     *           <li>
      *              {@code formatNumber(0.00000000123456789, false) == 1.23456789.e-9}
      *           </li>
      *           <li>
-     *              {@code formatNumber(0.00000000123456789123456789, true) == 1.234567891234568.e-9}; and
+     *              {@code formatNumber(0.00000000123456789123456789, true) == 1.234567891234568.e-9}; and <br>
+     *           </li>
+     *           <li>
      *              {@code formatNumber(0.00000000123456789123456789, false) == 1.234567891234568.e-9}
      *           </li>
      *       </ul>
@@ -123,11 +129,15 @@ public class NumberFormatter {
      *       If length of integer part is more than {@code MAX_SYMBOLS}: <br>
      *       <ul>
      *           <li>
-     *              {@code formatNumber(10000000000000000, true) == 1.e+16}; and
+     *              {@code formatNumber(10000000000000000, true) == 1.e+16}; and <br>
+     *           </li>
+     *           <li>
      *              {@code formatNumber(10000000000000000, false) == 1.e+16}
      *           </li>
      *           <li>
-     *              {@code formatNumber(111222333444555666777888999, true) == 1.112223334445557.e+26}; and
+     *              {@code formatNumber(111222333444555666777888999, true) == 1.112223334445557.e+26}; and <br>
+     *           </li>
+     *           <li>
      *              {@code formatNumber(111222333444555666777888999, false) == 1.112223334445557.e+26}
      *           </li>
      *       </ul>
@@ -136,35 +146,51 @@ public class NumberFormatter {
      *       Otherwise: <br>
      *       <ul>
      *           <li>
-     *              {@code formatNumber(123, true) == 123}; and
+     *              {@code formatNumber(123, true) == 123}; and <br>
+     *           </li>
+     *           <li>
      *              {@code formatNumber(123, false) == 123}
      *           </li>
      *           <li>
-     *              {@code formatNumber(1234, true) == 1,234}; and
+     *              {@code formatNumber(1234, true) == 1,234}; and <br>
+     *           </li>
+     *           <li>
      *              {@code formatNumber(1234, false) == 1234}
      *           </li>
      *           <li>
-     *              {@code formatNumber(123456, true) == 123,456}; and
+     *              {@code formatNumber(123456, true) == 123,456}; and <br>
+     *           </li>
+     *           <li>
      *              {@code formatNumber(123456, false) == 123456}
      *           </li>
      *           <li>
-     *              {@code formatNumber(1234567890, true) == 1,234,567,890}; and
+     *              {@code formatNumber(1234567890, true) == 1,234,567,890}; and <br>
+     *           </li>
+     *           <li>
      *              {@code formatNumber(1234567890, false) == 1234567890}
      *           </li>
      *           <li>
-     *              {@code formatNumber(123.123456, true) == 123.123456}; and
+     *              {@code formatNumber(123.123456, true) == 123.123456}; and <br>
+     *           </li>
+     *           <li>
      *              {@code formatNumber(123.123456, false) == 123.123456}
      *           </li>
      *           <li>
-     *              {@code formatNumber(1234567.123456, true) == 1,234,567.123456}; and
+     *              {@code formatNumber(1234567.123456, true) == 1,234,567.123456}; and <br>
+     *           </li>
+     *           <li>
      *              {@code formatNumber(1234567.123456, false) == 1234567.123456}
      *           </li>
      *           <li>
-     *              {@code formatNumber(1.2345678901234567, true) == 1.234567890123457}; and
+     *              {@code formatNumber(1.2345678901234567, true) == 1.234567890123457}; and <br>
+     *           </li>
+     *           <li>
      *              {@code formatNumber(1.2345678901234567, false) == 1.2345678901234567}
      *           </li>
      *           <li>
-     *              {@code formatNumber(12345678.12345678222222222, true) == 12,345,678.12345678}; and
+     *              {@code formatNumber(12345678.12345678222222222, true) == 12,345,678.12345678}; and <br>
+     *           </li>
+     *           <li>
      *              {@code formatNumber(12345678.12345678222222222, false) == 12345678.12345678}
      *           </li>
      *        </ul>
