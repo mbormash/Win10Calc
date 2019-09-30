@@ -21,70 +21,113 @@ import static com.implemica.bormashenko.calculator.model.enums.UnaryOperation.*;
  */
 public class Demo {
 
+    private static Calculation calculation = new Calculation();
+
     /**
      * Shows how model works.
      *
      * @param args command line args.
      */
     public static void main(String... args) {
+        List<Object> equation = new LinkedList<>();
 
-        Calculation calculation = new Calculation();
-        BigDecimal a = new BigDecimal("5");
-        BigDecimal b = new BigDecimal("3");
-        BigDecimal c = new BigDecimal("0");
+        equation.add(new BigDecimal("5"));
+        equation.add(SQR);
+        equation.add(ADD);
+        equation.add(new BigDecimal("3"));
+        equation.add(NEGATE);
+        equation.add(DIVIDE);
+        equation.add(new BigDecimal("4"));
+        equation.add(SQRT);
+        equation.add("=");
 
-        List<Object> operations = new LinkedList();
-
-        //even numbers: BigDecimal
-        //odd numbers: operation (binary or unary)
-
-        //decimal operation decimal operation decimal operation decimal operation = .....
-
-
-        UnaryOperation unary1 = SQR;
-        UnaryOperation unary2 = NEGATE;
-        UnaryOperation unary3 = SQRT;
-
-        BinaryOperation binary1 = ADD;
-        BinaryOperation binary2 = DIVIDE;
-
-        BigDecimal result;
+        calculation.setFirst((BigDecimal) equation.get(0));
 
         try {
-            //calculate (unary1(a)) and set it as first.
-            result = calculation.calculateUnary(a, unary1);
-            calculation.setFirst(result);
+            boolean secondSet = false;
+            BigDecimal result = BigDecimal.ZERO;
 
+            for (int i = 1; i < equation.size(); i++) {
 
+                if (equation.get(i) instanceof BigDecimal) {
+                    calculation.setSecond((BigDecimal) equation.get(i));
+                    secondSet = true;
+                } else if (equation.get(i) instanceof BinaryOperation) {
+                    result = doBinary(secondSet, (BinaryOperation) equation.get(i));
+                    secondSet = false;
+                } else if (equation.get(i) instanceof UnaryOperation) {
+                    result = doUnary(secondSet, (UnaryOperation) equation.get(i));
+                } else if (equation.get(i) == "=") {
 
-            //calculate (unary2(b)) and set it as second.
-            result = calculation.calculateUnary(b, unary2);
-            calculation.setSecond(result);
+                    if (!secondSet) {
+                        calculation.setSecond(calculation.getFirst());
+                    }
 
-
-
-            //calculate (unary1(a) binary1 unary2(b))
-            calculation.setBinaryOperation(binary1);
-            result = calculation.calculateBinary();
-
-
-
-            //set previous result as first, calculate (unary3(c)) and set it as second.
-            calculation.setFirst(result);
-            result = calculation.calculateUnary(c, unary3);
-            calculation.setSecond(result);
-
-
-
-            //calculate ((unary1(a) binary1 unary2(b)) binary2 unary3(c))
-//            calculation.setSecond(BigDecimal.ZERO);
-            calculation.setBinaryOperation(binary2);
-            result = calculation.calculateBinary();
+                    result = calculation.calculateBinary();
+                } else {
+                    throw new IllegalArgumentException("Expected: binary operation or number. Got: " + args[i]);
+                }
+            }
 
             System.out.println("Result of operations: " + result);
         } catch (OverflowException | DivideByZeroException | DivideZeroByZeroException | NegativeRootException e) {
             System.out.println("Result of operations: " + e.getMessage());
         }
+    }
+
+    /**
+     * Performs {@code BinaryOperation} from model.
+     *
+     * @param secondSet true if second number is already set or false otherwise.
+     * @param operation operation to perform.
+     * @return result of operation.
+     * @throws OverflowException         if the exception was thrown by model.
+     * @throws DivideZeroByZeroException if the exception was thrown by model.
+     * @throws DivideByZeroException     if the exception was thrown by model.
+     */
+    private static BigDecimal doBinary(boolean secondSet, BinaryOperation operation) throws OverflowException,
+            DivideZeroByZeroException, DivideByZeroException {
+        BigDecimal result = BigDecimal.ZERO;
+
+        if (secondSet) {
+            result = calculation.calculateBinary();
+            calculation.setFirst(result);
+        }
+
+        calculation.setBinaryOperation(operation);
+
+        return result;
+    }
+
+    /**
+     * Performs {@code UnaryOperation} from model.
+     *
+     * @param secondSet true if second number is already set or false otherwise.
+     * @param operation operation to perform.
+     * @return result of operation.
+     * @throws OverflowException     if the exception was thrown by model.
+     * @throws NegativeRootException if the exception was thrown by model.
+     * @throws DivideByZeroException if the exception was thrown by model.
+     */
+    private static BigDecimal doUnary(boolean secondSet, UnaryOperation operation) throws OverflowException,
+            NegativeRootException, DivideByZeroException {
+
+        BigDecimal result;
+
+        if (secondSet) {
+            result = calculation.calculateUnary(calculation.getSecond(), operation);
+            calculation.setSecond(result);
+        } else {
+            result = calculation.calculateUnary(calculation.getFirst(), operation);
+
+            if (calculation.getBinaryOperation() == null) {
+                calculation.setFirst(result);
+            } else {
+                calculation.setSecond(result);
+            }
+        }
+
+        return result;
     }
 }
 
