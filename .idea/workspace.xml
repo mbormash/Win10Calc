@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="Refactoring demo.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/enums/BinaryOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/enums/Operation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/enums/UnaryOperation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/model/CalculationModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/model/CalculationModelTest.java" afterDir="false" />
     </list>
     <list id="82383ff1-c5f9-4fe0-897c-6d65fbc9d833" name="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;" comment="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;&#10;&#10;This reverts commit 7729eaa4" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -203,20 +200,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
-    </task>
-    <task id="LOCAL-00214" summary="Changing model's exceptions' logic.">
-      <created>1569364709563</created>
-      <option name="number" value="00214" />
-      <option name="presentableId" value="LOCAL-00214" />
-      <option name="project" value="LOCAL" />
-      <updated>1569364709563</updated>
-    </task>
-    <task id="LOCAL-00215" summary="Demo test case for model for exception created.">
-      <created>1569365327975</created>
-      <option name="number" value="00215" />
-      <option name="presentableId" value="LOCAL-00215" />
-      <option name="project" value="LOCAL" />
-      <updated>1569365327975</updated>
     </task>
     <task id="LOCAL-00216" summary="Returning clone of collection instead of origin in memory.">
       <created>1569406654909</created>
@@ -547,7 +530,21 @@
       <option name="project" value="LOCAL" />
       <updated>1569941636864</updated>
     </task>
-    <option name="localTasksCounter" value="263" />
+    <task id="LOCAL-00263" summary="Refactoring controller.">
+      <created>1569942089776</created>
+      <option name="number" value="00263" />
+      <option name="presentableId" value="LOCAL-00263" />
+      <option name="project" value="LOCAL" />
+      <updated>1569942089776</updated>
+    </task>
+    <task id="LOCAL-00264" summary="Refactoring model tests.">
+      <created>1569942119603</created>
+      <option name="number" value="00264" />
+      <option name="presentableId" value="LOCAL-00264" />
+      <option name="project" value="LOCAL" />
+      <updated>1569942119603</updated>
+    </task>
+    <option name="localTasksCounter" value="265" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -581,10 +578,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Refactoring number formatter." />
     <MESSAGE value="Refactoring controller tests." />
     <MESSAGE value="Updating model so it is easier to work with it." />
-    <MESSAGE value="Refactoring controller." />
     <MESSAGE value="Updating model so result field is not exist now." />
     <MESSAGE value="Updating demo." />
     <MESSAGE value="Append digit and remove last digit methods removed from NumberFormatter to NumberEditor." />
@@ -606,7 +601,9 @@
     <MESSAGE value="Demo edited." />
     <MESSAGE value="Refactoring demo." />
     <MESSAGE value="Updating controller tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating controller tests." />
+    <MESSAGE value="Refactoring controller." />
+    <MESSAGE value="Refactoring model tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring model tests." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

@@ -1,7 +1,6 @@
 package com.implemica.bormashenko.calculator.model;
 
-import com.implemica.bormashenko.calculator.model.enums.BinaryOperation;
-import com.implemica.bormashenko.calculator.model.enums.UnaryOperation;
+import com.implemica.bormashenko.calculator.model.enums.Operation;
 import com.implemica.bormashenko.calculator.model.exceptions.DivideByZeroException;
 import com.implemica.bormashenko.calculator.model.exceptions.DivideZeroByZeroException;
 import com.implemica.bormashenko.calculator.model.exceptions.NegativeRootException;
@@ -21,16 +20,16 @@ import java.math.RoundingMode;
 public class Calculation {
 
     /**
-     * Scale for {@code BinaryOperation.DIVIDE}.
+     * Scale for {@code Operation.DIVIDE}.
      *
-     * @see BinaryOperation
+     * @see Operation
      */
     private static final int DIVIDE_SCALE = 10000;
 
     /**
-     * MathContext for {@code UnaryOperation.SQRT}.
+     * MathContext for {@code Operation.SQRT}.
      *
-     * @see UnaryOperation
+     * @see Operation
      */
     private static final MathContext SQRT_CONTEXT = MathContext.DECIMAL64;
 
@@ -57,14 +56,19 @@ public class Calculation {
     private BigDecimal first = BigDecimal.ZERO;
 
     /**
-     * Second number of equation.
+     * First number of equation.
      */
     private BigDecimal second = BigDecimal.ZERO;
 
     /**
-     * {@link BinaryOperation} of equation.
+     * True if second number is set or false otherwise.
      */
-    private BinaryOperation binaryOperation;
+    private boolean isSecondSet = false;
+
+    /**
+     * {@link Operation} of equation.
+     */
+    private Operation binaryOperation = null;
 
     public void setFirst(BigDecimal first) {
         this.first = first;
@@ -76,18 +80,22 @@ public class Calculation {
 
     public void setSecond(BigDecimal second) {
         this.second = second;
+        isSecondSet = true;
     }
 
-    public BigDecimal getSecond() {
-        return second;
-    }
-
-    public void setBinaryOperation(BinaryOperation binaryOperation) {
-        this.binaryOperation = binaryOperation;
-    }
-
-    public BinaryOperation getBinaryOperation() {
+    public Operation getBinaryOperation() {
         return binaryOperation;
+    }
+
+    /**
+     * Sets operation only if it is binary.
+     *
+     * @param operation operation to check and set.
+     */
+    public void setBinaryOperation(Operation operation) {
+        if (operation.type.equals("binary")) {
+            this.binaryOperation = operation;
+        }
     }
 
     /**
@@ -97,32 +105,90 @@ public class Calculation {
         first = BigDecimal.ZERO;
         second = BigDecimal.ZERO;
         binaryOperation = null;
+        isSecondSet = false;
     }
 
     /**
-     * Calculates result using first value, {@link BinaryOperation} and second value.
+     * Calculates result using first value, second and an operation. Binary operations performs with two numbers,
+     * unary - with one (depends on field {@code isSecondSet}.
+     *
+     * @param operation operation to use.
+     * @return result of operation.
+     * @throws OverflowException         if {@link OverflowValidation} failed.
+     * @throws DivideZeroByZeroException if trying to divide zero by zero.
+     * @throws DivideByZeroException     if trying to divide by zero.
+     * @throws NegativeRootException     if trying to calculate negative root.
+     */
+    public BigDecimal calculate(Operation operation) throws OverflowException, DivideZeroByZeroException,
+            DivideByZeroException, NegativeRootException {
+        BigDecimal result = BigDecimal.ZERO;
+
+        if (isSecondSet) {
+
+            if (operation.type.equals("unary")) {
+                second = calculateUnary(second, operation);
+                result = second;
+            } else if (operation.type.equals("percent")) {
+                second = calculatePercentage(second);
+                result = second;
+            } else if (operation.type.equals("binary") || operation.type.equals("equals")) {
+
+                if (binaryOperation == null) {
+                    setBinaryOperation(operation);
+                }
+
+                result = calculateBinary();
+                first = result;
+
+                if (operation.type.equals("binary")) {
+                    setBinaryOperation(operation);
+                }
+            }
+
+        } else {
+
+            if (operation.type.equals("unary")) {
+                result = calculateUnary(first, operation);
+                first = result;
+            } else if (operation.type.equals("percent")) {
+                result = calculatePercentage(first);
+            } else if (operation.type.equals("binary")) {
+                setBinaryOperation(operation);
+            } else if (operation.type.equals("equals")) {
+                second = first;
+                isSecondSet = true;
+                result = calculateBinary();
+                first = result;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Calculates result using first value, {@link Operation} and second value.
      *
      * @return result of operation.
      * @throws OverflowException         while validation for result is failed.
      * @throws DivideByZeroException     if trying to divide by zero.
      * @throws DivideZeroByZeroException if trying to divide zero by zero.
      */
-    public BigDecimal calculateBinary() throws OverflowException, DivideByZeroException, DivideZeroByZeroException {
+    private BigDecimal calculateBinary() throws OverflowException, DivideByZeroException, DivideZeroByZeroException {
         BigDecimal result = BigDecimal.ZERO;
 
-        if (binaryOperation == BinaryOperation.ADD) {
+        if (binaryOperation == Operation.ADD) {
             result = add();
-        } else if (binaryOperation == BinaryOperation.SUBTRACT) {
+        } else if (binaryOperation == Operation.SUBTRACT) {
             result = subtract();
-        } else if (binaryOperation == BinaryOperation.MULTIPLY) {
+        } else if (binaryOperation == Operation.MULTIPLY) {
             result = multiply();
-        } else if (binaryOperation == BinaryOperation.DIVIDE) {
+        } else if (binaryOperation == Operation.DIVIDE) {
             result = divide();
         }
 
         result = result.stripTrailingZeros();
 
-        if (OverflowValidation.overflowValidationFailed(result, binaryOperation == BinaryOperation.DIVIDE,
+        if (OverflowValidation.overflowValidationFailed(result, binaryOperation == Operation.DIVIDE,
                 first)) {
             throw new OverflowException();
         }
@@ -131,7 +197,7 @@ public class Calculation {
     }
 
     /**
-     * Calculates result using first value and {@link UnaryOperation}.
+     * Calculates result using first value and {@link Operation}.
      *
      * @param number         number to work with.
      * @param unaryOperation operation to perform.
@@ -140,17 +206,17 @@ public class Calculation {
      * @throws NegativeRootException if trying to divide inverse zero.
      * @throws DivideByZeroException if trying to divide inverse zero.
      */
-    public BigDecimal calculateUnary(BigDecimal number, UnaryOperation unaryOperation) throws OverflowException,
+    private BigDecimal calculateUnary(BigDecimal number, Operation unaryOperation) throws OverflowException,
             NegativeRootException, DivideByZeroException {
         BigDecimal result = BigDecimal.ZERO;
 
-        if (unaryOperation == UnaryOperation.NEGATE) {
+        if (unaryOperation == Operation.NEGATE) {
             result = negate(number);
-        } else if (unaryOperation == UnaryOperation.SQR) {
+        } else if (unaryOperation == Operation.SQR) {
             result = sqr(number);
-        } else if (unaryOperation == UnaryOperation.SQRT) {
+        } else if (unaryOperation == Operation.SQRT) {
             result = sqrt(number);
-        } else if (unaryOperation == UnaryOperation.INVERSE) {
+        } else if (unaryOperation == Operation.INVERSE) {
             result = inverse(number);
         }
 
@@ -172,14 +238,14 @@ public class Calculation {
      * @return result of operation.
      * @throws OverflowException while validation for result is failed.
      */
-    public BigDecimal calculatePercentage(BigDecimal number) throws OverflowException {
+    private BigDecimal calculatePercentage(BigDecimal number) throws OverflowException {
         BigDecimal result = BigDecimal.ZERO;
 
         if (binaryOperation == null) {
             resetAll();
-        } else if (binaryOperation == BinaryOperation.ADD || binaryOperation == BinaryOperation.SUBTRACT) {
+        } else if (binaryOperation == Operation.ADD || binaryOperation == Operation.SUBTRACT) {
             result = percentageOfFirst(number);
-        } else if (binaryOperation == BinaryOperation.MULTIPLY || binaryOperation == BinaryOperation.DIVIDE) {
+        } else if (binaryOperation == Operation.MULTIPLY || binaryOperation == Operation.DIVIDE) {
             result = percentageOf100(number);
         }
 
@@ -374,7 +440,7 @@ public class Calculation {
      * @throws OverflowException while validation for second number is failed.
      */
     private BigDecimal percentageOf100(BigDecimal number) throws OverflowException {
-        if (number.scale() - ONE_HUNDRED.stripTrailingZeros().scale() > MAX_SCALE) {
+        if (number.abs().compareTo(new BigDecimal("1.e-9998")) <= 0 && number.compareTo(BigDecimal.ZERO) != 0) {
             throw new OverflowException();
         }
 
