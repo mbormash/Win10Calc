@@ -113,7 +113,19 @@ public class Calculation {
         isSecondSet = false;
     }
 
-    public BigDecimal calculate(BigDecimal first, Operation operation, BigDecimal second) throws DivideByZeroException, OverflowException, NegativeRootException, DivideZeroByZeroException {
+    /**
+     * Calculates result using first value, second and operation. Values given by user. Binary operations performs
+     * with two numbers, unary - with one (depends on field {@code isSecondSet}.
+     *
+     * @param operation operation to use.
+     * @return result of operation.
+     * @throws OverflowException         if {@link OverflowValidation} failed.
+     * @throws DivideZeroByZeroException if trying to divide zero by zero.
+     * @throws DivideByZeroException     if trying to divide by zero.
+     * @throws NegativeRootException     if trying to calculate negative root.
+     */
+    public BigDecimal calculate(BigDecimal first, Operation operation, BigDecimal second) throws DivideByZeroException,
+            OverflowException, NegativeRootException, DivideZeroByZeroException {
         this.first = first;
         this.second = second;
         isSecondSet = true;
@@ -122,13 +134,26 @@ public class Calculation {
         return this.first;
     }
 
-    public BigDecimal calculate(Operation operation, BigDecimal value) throws DivideByZeroException, OverflowException, NegativeRootException, DivideZeroByZeroException {
-        setFirst(value);
-        return calculate(operation);
+    /**
+     * Calculates result using value given by user and operation. Binary operations performs with two numbers,
+     * unary - with one (depends on field {@code isSecondSet}.
+     *
+     * @param operation operation to use.
+     * @return result of operation.
+     * @throws OverflowException         if {@link OverflowValidation} failed.
+     * @throws DivideZeroByZeroException if trying to divide zero by zero.
+     * @throws DivideByZeroException     if trying to divide by zero.
+     * @throws NegativeRootException     if trying to calculate negative root.
+     */
+    public BigDecimal calculate(BigDecimal value, Operation operation) throws DivideByZeroException,
+            OverflowException, NegativeRootException, DivideZeroByZeroException {
+        this.first = value;
+        this.first = calculate(operation);
+        return this.first;
     }
 
     /**
-     * Calculates result using first value, second and an operation. Binary operations performs with two numbers,
+     * Calculates result using first value, second and operation. Binary operations performs with two numbers,
      * unary - with one (depends on field {@code isSecondSet}.
      *
      * @param operation operation to use.

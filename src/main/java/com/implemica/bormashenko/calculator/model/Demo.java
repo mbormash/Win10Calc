@@ -73,8 +73,9 @@ public class Demo {
         Calculation calculation = new Calculation();
 
         try{
-            calculation.calculate(new BigDecimal("5"), ADD, new BigDecimal("7"));
-            BigDecimal result = calculation.calculate(SQRT);
+
+            BigDecimal result = calculation.calculate(new BigDecimal("5"), ADD, new BigDecimal("7"));
+            result = calculation.calculate(result, SQRT);
             result = calculation.calculate(result, DIVIDE, new BigDecimal("2"));
             result = calculation.calculate(result, MULTIPLY, new BigDecimal("100"));
 

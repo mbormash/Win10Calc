@@ -195,13 +195,6 @@
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
     </task>
-    <task id="LOCAL-00220" summary="For each loop replaced by for each method from stream api">
-      <created>1569410932752</created>
-      <option name="number" value="00220" />
-      <option name="presentableId" value="LOCAL-00220" />
-      <option name="project" value="LOCAL" />
-      <updated>1569410932752</updated>
-    </task>
     <task id="LOCAL-00221" summary="Refactoring keyboard handling.">
       <created>1569411713460</created>
       <option name="number" value="00221" />
@@ -538,7 +531,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569943493589</updated>
     </task>
-    <option name="localTasksCounter" value="269" />
+    <task id="LOCAL-00269" summary="Refactoring model.">
+      <created>1569944646169</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1569944646170</updated>
+    </task>
+    <option name="localTasksCounter" value="270" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -572,7 +572,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Append digit and remove last digit methods removed from NumberFormatter to NumberEditor." />
     <MESSAGE value="Updating javadocs." />
     <MESSAGE value="Refactoring delete last digit method in number editor." />
     <MESSAGE value="StringBuilder replaced by String where it was unnecessary to use." />
@@ -597,7 +596,8 @@
     <MESSAGE value="Demo updated." />
     <MESSAGE value="Bug fix in model with unary after equals." />
     <MESSAGE value="Refactoring enum operation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring enum operation." />
+    <MESSAGE value="Refactoring model." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring model." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
