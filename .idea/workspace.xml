@@ -4,14 +4,12 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="Refactoring demo.">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/enums/BinaryOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/enums/Operation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/enums/UnaryOperation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/controller/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/controller/ControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/model/CalculationModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/model/CalculationModelTest.java" afterDir="false" />
     </list>
     <list id="82383ff1-c5f9-4fe0-897c-6d65fbc9d833" name="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;" comment="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;&#10;&#10;This reverts commit 7729eaa4" />
@@ -205,13 +203,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
-    </task>
-    <task id="LOCAL-00213" summary="Refactoring tests for controller.">
-      <created>1569333700647</created>
-      <option name="number" value="00213" />
-      <option name="presentableId" value="LOCAL-00213" />
-      <option name="project" value="LOCAL" />
-      <updated>1569333700647</updated>
     </task>
     <task id="LOCAL-00214" summary="Changing model's exceptions' logic.">
       <created>1569364709563</created>
@@ -549,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569922551315</updated>
     </task>
-    <option name="localTasksCounter" value="262" />
+    <task id="LOCAL-00262" summary="Updating controller tests.">
+      <created>1569941636864</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1569941636864</updated>
+    </task>
+    <option name="localTasksCounter" value="263" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -583,7 +581,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Bug fix in controller with formatting number." />
     <MESSAGE value="Refactoring number formatter." />
     <MESSAGE value="Refactoring controller tests." />
     <MESSAGE value="Updating model so it is easier to work with it." />
@@ -608,7 +605,8 @@
     <MESSAGE value="Code refactoring." />
     <MESSAGE value="Demo edited." />
     <MESSAGE value="Refactoring demo." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring demo." />
+    <MESSAGE value="Updating controller tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating controller tests." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
