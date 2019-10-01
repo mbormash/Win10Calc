@@ -57,6 +57,9 @@ public enum Operation {
      */
     EQUALS("equals");
 
+    /**
+     * Shows type of operation.
+     */
     public String type;
 
     Operation(String type) {
