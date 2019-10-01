@@ -70,6 +70,11 @@ public class Calculation {
      */
     private Operation binaryOperation = null;
 
+    /**
+     * Previously used {@link Operation}.
+     */
+    private Operation previousOperation = null;
+
     public void setFirst(BigDecimal first) {
         this.first = first;
     }
@@ -126,8 +131,15 @@ public class Calculation {
         if (isSecondSet) {
 
             if (operation.type.equals("unary")) {
-                second = calculateUnary(second, operation);
-                result = second;
+
+                if (previousOperation.type.equals("equals")) {
+                    first = calculateUnary(first, operation);
+                    result = first;
+                } else {
+                    second = calculateUnary(second, operation);
+                    result = second;
+                }
+
             } else if (operation.type.equals("percent")) {
                 second = calculatePercentage(second);
                 result = second;
@@ -162,6 +174,7 @@ public class Calculation {
             }
         }
 
+        previousOperation = operation;
         return result;
     }
 
