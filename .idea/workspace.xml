@@ -4,7 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="Model changed for simplifying it for users.">
+    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Demo.java" afterDir="false" />
@@ -194,27 +194,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
-    </task>
-    <task id="LOCAL-00217" summary="Equals method for big decimals replaced by compare to method.">
-      <created>1569407043322</created>
-      <option name="number" value="00217" />
-      <option name="presentableId" value="LOCAL-00217" />
-      <option name="project" value="LOCAL" />
-      <updated>1569407043322</updated>
-    </task>
-    <task id="LOCAL-00218" summary="Symbols for equation label removed from model to controller.">
-      <created>1569409339464</created>
-      <option name="number" value="00218" />
-      <option name="presentableId" value="LOCAL-00218" />
-      <option name="project" value="LOCAL" />
-      <updated>1569409339464</updated>
-    </task>
-    <task id="LOCAL-00219" summary="Controller's logic does not depend on view anymore.">
-      <created>1569410220296</created>
-      <option name="number" value="00219" />
-      <option name="presentableId" value="LOCAL-00219" />
-      <option name="project" value="LOCAL" />
-      <updated>1569410220296</updated>
     </task>
     <task id="LOCAL-00220" summary="For each loop replaced by for each method from stream api">
       <created>1569410932752</created>
@@ -538,7 +517,28 @@
       <option name="project" value="LOCAL" />
       <updated>1569942409611</updated>
     </task>
-    <option name="localTasksCounter" value="266" />
+    <task id="LOCAL-00266" summary="Demo updated.">
+      <created>1569943434387</created>
+      <option name="number" value="00266" />
+      <option name="presentableId" value="LOCAL-00266" />
+      <option name="project" value="LOCAL" />
+      <updated>1569943434387</updated>
+    </task>
+    <task id="LOCAL-00267" summary="Bug fix in model with unary after equals.">
+      <created>1569943460341</created>
+      <option name="number" value="00267" />
+      <option name="presentableId" value="LOCAL-00267" />
+      <option name="project" value="LOCAL" />
+      <updated>1569943460341</updated>
+    </task>
+    <task id="LOCAL-00268" summary="Refactoring enum operation.">
+      <created>1569943493589</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1569943493589</updated>
+    </task>
+    <option name="localTasksCounter" value="269" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -572,9 +572,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Updating model so it is easier to work with it." />
-    <MESSAGE value="Updating model so result field is not exist now." />
-    <MESSAGE value="Updating demo." />
     <MESSAGE value="Append digit and remove last digit methods removed from NumberFormatter to NumberEditor." />
     <MESSAGE value="Updating javadocs." />
     <MESSAGE value="Refactoring delete last digit method in number editor." />
@@ -597,7 +594,10 @@
     <MESSAGE value="Refactoring controller." />
     <MESSAGE value="Refactoring model tests." />
     <MESSAGE value="Model changed for simplifying it for users." />
-    <option name="LAST_COMMIT_MESSAGE" value="Model changed for simplifying it for users." />
+    <MESSAGE value="Demo updated." />
+    <MESSAGE value="Bug fix in model with unary after equals." />
+    <MESSAGE value="Refactoring enum operation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring enum operation." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

@@ -113,6 +113,20 @@ public class Calculation {
         isSecondSet = false;
     }
 
+    public BigDecimal calculate(BigDecimal first, Operation operation, BigDecimal second) throws DivideByZeroException, OverflowException, NegativeRootException, DivideZeroByZeroException {
+        this.first = first;
+        this.second = second;
+        isSecondSet = true;
+        setBinaryOperation(operation);
+        this.first = calculate(Operation.EQUALS);
+        return this.first;
+    }
+
+    public BigDecimal calculate(Operation operation, BigDecimal value) throws DivideByZeroException, OverflowException, NegativeRootException, DivideZeroByZeroException {
+        setFirst(value);
+        return calculate(operation);
+    }
+
     /**
      * Calculates result using first value, second and an operation. Binary operations performs with two numbers,
      * unary - with one (depends on field {@code isSecondSet}.

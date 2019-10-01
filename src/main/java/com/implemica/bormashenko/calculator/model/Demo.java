@@ -73,17 +73,10 @@ public class Demo {
         Calculation calculation = new Calculation();
 
         try{
-            calculation.setFirst(new BigDecimal("5"));
-            calculation.setBinaryOperation(ADD);
-            calculation.setSecond(new BigDecimal("7"));
-            calculation.calculate(EQUALS);
-            calculation.calculate(SQRT);
-            calculation.setSecond(new BigDecimal("2"));
-            calculation.setBinaryOperation(DIVIDE);
-            calculation.calculate(EQUALS);
-            calculation.setSecond(new BigDecimal("100"));
-            calculation.setBinaryOperation(MULTIPLY);
-            BigDecimal result = calculation.calculate(EQUALS);
+            calculation.calculate(new BigDecimal("5"), ADD, new BigDecimal("7"));
+            BigDecimal result = calculation.calculate(SQRT);
+            result = calculation.calculate(result, DIVIDE, new BigDecimal("2"));
+            result = calculation.calculate(result, MULTIPLY, new BigDecimal("100"));
 
             System.out.println("Result of operations: " + result);
         } catch (OverflowException | DivideByZeroException | DivideZeroByZeroException | NegativeRootException e) {
