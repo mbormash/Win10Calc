@@ -65,7 +65,9 @@ public class Demo {
 
                     result = calculation.calculateBinary();
                 } else {
-                    throw new IllegalArgumentException("Expected: binary operation or number. Got: " + equation.get(i));
+                    throw new IllegalArgumentException("Expected: instance of BigDecimal, BinaryOperation, " +
+                            "UnaryOperation or \"=\" symbol. Got: " + equation.get(i).getClass() + ", value: " +
+                            equation.get(i));
                 }
             }
 
