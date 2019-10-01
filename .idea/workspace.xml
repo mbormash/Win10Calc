@@ -4,7 +4,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="" />
+    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="82383ff1-c5f9-4fe0-897c-6d65fbc9d833" name="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;" comment="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;&#10;&#10;This reverts commit 7729eaa4" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,6 +104,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.implemica.bormashenko.calculator.Launcher" />
+      <module name="Win10Calc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.implemica.bormashenko.calculator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ControllerTest.allTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Win10Calc" />
       <extension name="coverage">
@@ -134,7 +149,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NumberFormatterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ControllerTest.inverseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Win10Calc" />
       <extension name="coverage">
         <pattern>
@@ -143,42 +158,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests.controller" />
-      <option name="MAIN_CLASS_NAME" value="tests.controller.NumberFormatterTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NumberFormatterTest.boundaryFormatting" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Win10Calc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.controller" />
-      <option name="MAIN_CLASS_NAME" value="tests.controller.NumberFormatterTest" />
-      <option name="METHOD_NAME" value="boundaryFormatting" />
+      <option name="MAIN_CLASS_NAME" value="tests.controller.ControllerTest" />
+      <option name="METHOD_NAME" value="inverseTests" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Demo" />
-      <item itemvalue="JUnit.ControllerTest.allTests" />
-      <item itemvalue="JUnit.NumberFormatterTest.boundaryFormatting" />
-      <item itemvalue="JUnit.NumberFormatterTest" />
       <item itemvalue="JUnit.ControllerTest.boundaryFormattingTests" />
+      <item itemvalue="JUnit.ControllerTest.allTests" />
+      <item itemvalue="JUnit.ControllerTest.inverseTests" />
+      <item itemvalue="Application.Demo" />
+      <item itemvalue="Application.Launcher" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Demo" />
-        <item itemvalue="JUnit.NumberFormatterTest.boundaryFormatting" />
-        <item itemvalue="JUnit.ControllerTest.boundaryFormattingTests" />
+        <item itemvalue="Application.Launcher" />
+        <item itemvalue="JUnit.ControllerTest.inverseTests" />
         <item itemvalue="JUnit.ControllerTest.allTests" />
-        <item itemvalue="JUnit.NumberFormatterTest" />
+        <item itemvalue="JUnit.ControllerTest.boundaryFormattingTests" />
       </list>
     </recent_temporary>
   </component>
@@ -192,69 +192,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
-    </task>
-    <task id="LOCAL-00213" summary="Refactoring tests for controller.">
-      <created>1569333700647</created>
-      <option name="number" value="00213" />
-      <option name="presentableId" value="LOCAL-00213" />
-      <option name="project" value="LOCAL" />
-      <updated>1569333700647</updated>
-    </task>
-    <task id="LOCAL-00214" summary="Changing model's exceptions' logic.">
-      <created>1569364709563</created>
-      <option name="number" value="00214" />
-      <option name="presentableId" value="LOCAL-00214" />
-      <option name="project" value="LOCAL" />
-      <updated>1569364709563</updated>
-    </task>
-    <task id="LOCAL-00215" summary="Demo test case for model for exception created.">
-      <created>1569365327975</created>
-      <option name="number" value="00215" />
-      <option name="presentableId" value="LOCAL-00215" />
-      <option name="project" value="LOCAL" />
-      <updated>1569365327975</updated>
-    </task>
-    <task id="LOCAL-00216" summary="Returning clone of collection instead of origin in memory.">
-      <created>1569406654909</created>
-      <option name="number" value="00216" />
-      <option name="presentableId" value="LOCAL-00216" />
-      <option name="project" value="LOCAL" />
-      <updated>1569406654909</updated>
-    </task>
-    <task id="LOCAL-00217" summary="Equals method for big decimals replaced by compare to method.">
-      <created>1569407043322</created>
-      <option name="number" value="00217" />
-      <option name="presentableId" value="LOCAL-00217" />
-      <option name="project" value="LOCAL" />
-      <updated>1569407043322</updated>
-    </task>
-    <task id="LOCAL-00218" summary="Symbols for equation label removed from model to controller.">
-      <created>1569409339464</created>
-      <option name="number" value="00218" />
-      <option name="presentableId" value="LOCAL-00218" />
-      <option name="project" value="LOCAL" />
-      <updated>1569409339464</updated>
-    </task>
-    <task id="LOCAL-00219" summary="Controller's logic does not depend on view anymore.">
-      <created>1569410220296</created>
-      <option name="number" value="00219" />
-      <option name="presentableId" value="LOCAL-00219" />
-      <option name="project" value="LOCAL" />
-      <updated>1569410220296</updated>
-    </task>
-    <task id="LOCAL-00220" summary="For each loop replaced by for each method from stream api">
-      <created>1569410932752</created>
-      <option name="number" value="00220" />
-      <option name="presentableId" value="LOCAL-00220" />
-      <option name="project" value="LOCAL" />
-      <updated>1569410932752</updated>
-    </task>
-    <task id="LOCAL-00221" summary="Refactoring keyboard handling.">
-      <created>1569411713460</created>
-      <option name="number" value="00221" />
-      <option name="presentableId" value="LOCAL-00221" />
-      <option name="project" value="LOCAL" />
-      <updated>1569411713460</updated>
     </task>
     <task id="LOCAL-00222" summary="Refactoring boolean methods in number formatter.">
       <created>1569416169997</created>
@@ -530,13 +467,76 @@
       <updated>1569877287736</updated>
     </task>
     <task id="LOCAL-00261" summary="Refactoring demo.">
-      <created>1569886020389</created>
+      <created>1569922551315</created>
       <option name="number" value="00261" />
       <option name="presentableId" value="LOCAL-00261" />
       <option name="project" value="LOCAL" />
-      <updated>1569886020389</updated>
+      <updated>1569922551315</updated>
     </task>
-    <option name="localTasksCounter" value="262" />
+    <task id="LOCAL-00262" summary="Updating controller tests.">
+      <created>1569941636864</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1569941636864</updated>
+    </task>
+    <task id="LOCAL-00263" summary="Refactoring controller.">
+      <created>1569942089776</created>
+      <option name="number" value="00263" />
+      <option name="presentableId" value="LOCAL-00263" />
+      <option name="project" value="LOCAL" />
+      <updated>1569942089776</updated>
+    </task>
+    <task id="LOCAL-00264" summary="Refactoring model tests.">
+      <created>1569942119603</created>
+      <option name="number" value="00264" />
+      <option name="presentableId" value="LOCAL-00264" />
+      <option name="project" value="LOCAL" />
+      <updated>1569942119603</updated>
+    </task>
+    <task id="LOCAL-00265" summary="Model changed for simplifying it for users.">
+      <created>1569942409611</created>
+      <option name="number" value="00265" />
+      <option name="presentableId" value="LOCAL-00265" />
+      <option name="project" value="LOCAL" />
+      <updated>1569942409611</updated>
+    </task>
+    <task id="LOCAL-00266" summary="Demo updated.">
+      <created>1569943434387</created>
+      <option name="number" value="00266" />
+      <option name="presentableId" value="LOCAL-00266" />
+      <option name="project" value="LOCAL" />
+      <updated>1569943434387</updated>
+    </task>
+    <task id="LOCAL-00267" summary="Bug fix in model with unary after equals.">
+      <created>1569943460341</created>
+      <option name="number" value="00267" />
+      <option name="presentableId" value="LOCAL-00267" />
+      <option name="project" value="LOCAL" />
+      <updated>1569943460341</updated>
+    </task>
+    <task id="LOCAL-00268" summary="Refactoring enum operation.">
+      <created>1569943493589</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1569943493589</updated>
+    </task>
+    <task id="LOCAL-00269" summary="Refactoring model.">
+      <created>1569944646169</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1569944646170</updated>
+    </task>
+    <task id="LOCAL-00270" summary="Refactoring model.">
+      <created>1569945379530</created>
+      <option name="number" value="00270" />
+      <option name="presentableId" value="LOCAL-00270" />
+      <option name="project" value="LOCAL" />
+      <updated>1569945379530</updated>
+    </task>
+    <option name="localTasksCounter" value="271" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -570,14 +570,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Bug fix in controller with formatting number." />
-    <MESSAGE value="Refactoring number formatter." />
-    <MESSAGE value="Refactoring controller tests." />
-    <MESSAGE value="Updating model so it is easier to work with it." />
-    <MESSAGE value="Refactoring controller." />
-    <MESSAGE value="Updating model so result field is not exist now." />
-    <MESSAGE value="Updating demo." />
-    <MESSAGE value="Append digit and remove last digit methods removed from NumberFormatter to NumberEditor." />
     <MESSAGE value="Updating javadocs." />
     <MESSAGE value="Refactoring delete last digit method in number editor." />
     <MESSAGE value="StringBuilder replaced by String where it was unnecessary to use." />
@@ -595,7 +587,15 @@
     <MESSAGE value="Code refactoring." />
     <MESSAGE value="Demo edited." />
     <MESSAGE value="Refactoring demo." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring demo." />
+    <MESSAGE value="Updating controller tests." />
+    <MESSAGE value="Refactoring controller." />
+    <MESSAGE value="Refactoring model tests." />
+    <MESSAGE value="Model changed for simplifying it for users." />
+    <MESSAGE value="Demo updated." />
+    <MESSAGE value="Bug fix in model with unary after equals." />
+    <MESSAGE value="Refactoring enum operation." />
+    <MESSAGE value="Refactoring model." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring model." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -607,35 +607,35 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Win10Calc$view_in_Win10Calc.ic" NAME="view in Win10Calc Coverage Results" MODIFIED="1566999387518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.implemica.bormashenko.calculator.view.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Win10Calc$CalculationModelTest.ic" NAME="CalculationModelTest Coverage Results" MODIFIED="1568811092331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.implemica.bormashenko.calculator.model.Calculation</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Win10Calc$NumberFormatterTest.ic" NAME="NumberFormatterTest Coverage Results" MODIFIED="1568367630709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.implemica.bormashenko.calculator.controller.util.NumberFormatter</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Win10Calc$ControllerTest.ic" NAME="ControllerTest Coverage Results" MODIFIED="1568367642244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>tests.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Win10Calc$ViewTest_checkColorTests.ic" NAME="ViewTest.checkColorTests Coverage Results" MODIFIED="1566595570493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.implemica.bormashenko.calculator.view.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/Win10Calc$ViewTest_allTests.ic" NAME="ViewTest.allTests Coverage Results" MODIFIED="1568041279473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.implemica.bormashenko.calculator.view.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Win10Calc$ControllerTest_allTests.ic" NAME="ControllerTest.allTests Coverage Results" MODIFIED="1568375565226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.implemica.bormashenko.calculator.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Win10Calc$Model_in_Win10Calc.ic" NAME="Model in Win10Calc Coverage Results" MODIFIED="1566389321992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.implemica.bormashenko.calculator.model.*</FILTER>
+    <SUITE FILE_PATH="coverage/Win10Calc$ControllerTest.ic" NAME="ControllerTest Coverage Results" MODIFIED="1568367642244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>tests.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Win10Calc$MemoryModelTest.ic" NAME="MemoryModelTest Coverage Results" MODIFIED="1568376239167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.implemica.bormashenko.calculator.model.Memory</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Win10Calc$MemoryModelTest.exec" NAME="MemoryModelTest Coverage Results" MODIFIED="1566387259477" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.implemica.bormashenko.calculator.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Win10Calc$view_in_Win10Calc.ic" NAME="view in Win10Calc Coverage Results" MODIFIED="1566999387518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.implemica.bormashenko.calculator.view.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Win10Calc$ViewTest_checkColorTests.ic" NAME="ViewTest.checkColorTests Coverage Results" MODIFIED="1566595570493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.implemica.bormashenko.calculator.view.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Win10Calc$CalculationModelTest.ic" NAME="CalculationModelTest Coverage Results" MODIFIED="1568811092331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.implemica.bormashenko.calculator.model.Calculation</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Win10Calc$Model_in_Win10Calc.ic" NAME="Model in Win10Calc Coverage Results" MODIFIED="1566389321992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.implemica.bormashenko.calculator.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Win10Calc$ControllerTest_allTests.ic" NAME="ControllerTest.allTests Coverage Results" MODIFIED="1568375565226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.implemica.bormashenko.calculator.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Win10Calc$NumberFormatterTest.ic" NAME="NumberFormatterTest Coverage Results" MODIFIED="1568367630709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.implemica.bormashenko.calculator.controller.util.NumberFormatter</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Win10Calc$ViewTest.ic" NAME="ViewTest Coverage Results" MODIFIED="1568040399780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tests.view.*</FILTER>
