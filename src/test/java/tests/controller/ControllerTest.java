@@ -361,6 +361,7 @@ public class ControllerTest extends RobotControl {
         //after binary operation pressed
         checkTyped("9-2", "2");
         checkTyped("12/1", "1");
+
         //after percent pressed
         checkTyped("6%2", "2");
         checkTyped("1-%90", "90");
@@ -749,8 +750,6 @@ public class ControllerTest extends RobotControl {
                 "9000000000000000 × 1000000000000000 ×");
         checkTyped("9000000000000000*1000000000000000*4*", "3.6e+31",
                 "9000000000000000 × 1000000000000000 × 4 ×");
-        checkTyped("0.9999999999999999*0.1*", "0.1",
-                "0.9999999999999999 × 0.1 ×");
         checkTyped("0.9999999999999999*0.6*", "0.5999999999999999",
                 "0.9999999999999999 × 0.6 ×");
     }
@@ -977,23 +976,22 @@ public class ControllerTest extends RobotControl {
         checkTyped("1 1/x 2 1/x 3 1/x", "0.3333333333333333", "1/( 3 )");
 
         //after dot
-        checkTyped("62. 1/x", "0.0161290322580645", "1/( 62 )");
+        checkTyped("62. 1/x", "0.01612903225806452", "1/( 62 )");
 
         //in a row
         checkTyped("866 1/x 1/x 1/x 1/x", "866",
                 "1/( 1/( 1/( 1/( 866 ) ) ) )");
-        checkTyped("866 1/x 1/x 1/x 1/x 1/x", "0.0011547344110855",
+        checkTyped("866 1/x 1/x 1/x 1/x 1/x", "0.00115473441108545",
                 "1/( 1/( 1/( 1/( 1/( 866 ) ) ) ) )");
 
         //after another unary
-        checkTyped("123neg 1/x", "-0.008130081300813", "1/( -123 )");
         checkTyped("49² 1/x", "4.164931278633903e-4", "1/( sqr( 49 ) )");
         checkTyped("1 √ 1/x", "1", "1/( √( 1 ) )");
 
         //after binary
         checkTyped("6522456- 1/x", "1.533164807857654e-7",
                 "6522456 - 1/( 6522456 )");
-        checkTyped("55/ 1/x", "0.0181818181818182", "55 ÷ 1/( 55 )");
+        checkTyped("55/ 1/x", "0.01818181818181818", "55 ÷ 1/( 55 )");
 
         //after percent
         checkTyped("78% 1/x", DIVIDE_BY_ZERO_MESSAGE, "1/( 0 )");
@@ -1002,13 +1000,13 @@ public class ControllerTest extends RobotControl {
 
         //after equals
         checkTyped("73= 1/x", "0.0136986301369863", "1/( 73 )");
-        checkTyped("53-26= 1/x", "0.037037037037037", "1/( 27 )");
+        checkTyped("53-26= 1/x", "0.03703703703703704", "1/( 27 )");
 
         //after second inputted
-        checkTyped("856-30 1/x", "0.0333333333333333", "856 - 1/( 30 )");
+        checkTyped("856-30 1/x", "0.03333333333333333", "856 - 1/( 30 )");
 
         //after second calculating
-        checkTyped("8*6²  1/x", "0.0277777777777778", "8 × 1/( sqr( 6 ) )");
+        checkTyped("8*6²  1/x", "0.02777777777777778", "8 × 1/( sqr( 6 ) )");
     }
 
     /**
@@ -1049,7 +1047,7 @@ public class ControllerTest extends RobotControl {
         //after equals
         checkTyped("73=%", "0", "0");
         checkTyped("53+1 2 = %", "42.25", "42.25");
-        checkTyped("53/12=%", "0.0441666666666667", "0.0441666666666667");
+        checkTyped("53/12=%", "0.04416666666666667", "0.04416666666666667");
 
         //percent after second inputted
         checkTyped("8*6%", "0.06", "8 × 0.06");
