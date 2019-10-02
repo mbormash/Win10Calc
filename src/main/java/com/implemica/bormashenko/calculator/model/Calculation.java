@@ -42,6 +42,12 @@ public class Calculation {
     private static final int MAX_SCALE = 9999;
 
     /**
+     * The number and any number less that that should cause {@link OverflowException} if trying to calculate percent of
+     * 100 for the number.
+     */
+    private static final BigDecimal PERCENT_OF_100_EDGE = new BigDecimal("1.e-9998");
+
+    /**
      * {@code BigDecimal} value of 0.5.
      */
     private static final BigDecimal ONE_HALF = new BigDecimal("0.5");
@@ -123,7 +129,7 @@ public class Calculation {
      * @throws NegativeRootException     if trying to calculate negative root.
      */
     public BigDecimal doOperation(Operation operation, BigDecimal... numbers) throws OverflowException,
-            DivideZeroByZeroException,  DivideByZeroException, NegativeRootException {
+            DivideZeroByZeroException, DivideByZeroException, NegativeRootException {
         if (operation.type == OperationType.UNARY && numbers.length > 1) {
             throw new IllegalArgumentException("Excepted: 0 or 1 number for setting as first and performing unary " +
                     "operation. Got: " + numbers.length + " numbers.");
@@ -166,6 +172,7 @@ public class Calculation {
 
     /**
      * Performs operation if second number is not set.
+     *
      * @param operation operation to use.
      * @return result of operation.
      * @throws OverflowException         if overflow validation failed.
@@ -220,6 +227,7 @@ public class Calculation {
 
     /**
      * Performs operation if second number is set.
+     *
      * @param operation operation to use.
      * @return result of operation.
      * @throws OverflowException         if overflow validation failed.
@@ -554,8 +562,7 @@ public class Calculation {
      * @throws OverflowException while validation for second number is failed.
      */
     private BigDecimal percentageOf100(BigDecimal number) throws OverflowException {
-        //todo
-        if (number.abs().compareTo(new BigDecimal("1.e-9998")) <= 0 && number.compareTo(BigDecimal.ZERO) != 0) {
+        if (number.abs().compareTo(PERCENT_OF_100_EDGE) <= 0 && number.compareTo(BigDecimal.ZERO) != 0) {
             throw new OverflowException();
         }
 
