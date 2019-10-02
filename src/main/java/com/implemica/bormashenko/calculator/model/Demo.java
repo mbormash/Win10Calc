@@ -25,7 +25,7 @@ public class Demo {
      * @param args command line args.
      */
     public static void main(String... args) {
-//        dynamicDemo();
+        dynamicDemo();
         staticDemo();
     }
 
@@ -56,7 +56,7 @@ public class Demo {
                 if (equation.get(i) instanceof BigDecimal) {
                     calculation.setSecond((BigDecimal) equation.get(i));
                 } else {
-                    result = calculation.calculate((Operation) equation.get(i));
+                    result = calculation.doOperation((Operation) equation.get(i));
                 }
             }
 
@@ -73,11 +73,10 @@ public class Demo {
         Calculation calculation = new Calculation();
 
         try{
-
-            BigDecimal result = calculation.calculate(new BigDecimal("5"), ADD, new BigDecimal("7"));
-            result = calculation.calculate(result, SQRT);
-            result = calculation.calculate(result, DIVIDE, new BigDecimal("2"));
-            result = calculation.calculate(result, MULTIPLY, new BigDecimal("100"));
+            calculation.doOperation(ADD, new BigDecimal("7"), new BigDecimal("5"));
+            calculation.doOperation(SQRT);
+            calculation.doOperation(DIVIDE, new BigDecimal("2"));
+            BigDecimal result = calculation.doOperation(MULTIPLY, new BigDecimal("100"));
 
             System.out.println("Result of operations: " + result);
         } catch (OverflowException | DivideByZeroException | DivideZeroByZeroException | NegativeRootException e) {
