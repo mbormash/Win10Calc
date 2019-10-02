@@ -30,9 +30,9 @@ import java.util.ResourceBundle;
 import java.util.Stack;
 import java.util.stream.Stream;
 
-import static com.implemica.bormashenko.calculator.controller.util.NumberEditor.*;
 import static com.implemica.bormashenko.calculator.controller.util.NumberFormatter.*;
 import static com.implemica.bormashenko.calculator.model.enums.Operation.*;
+import static com.implemica.bormashenko.calculator.model.util.AppendAndDeleteDigit.*;
 
 /**
  * Controller for application.
@@ -674,7 +674,11 @@ public class Controller implements Initializable {
         }
     }
 
-    //todo
+    /**
+     * Performs operation that was pressed in {@link Calculation}. Also shows text in equation {@code Label}.
+     *
+     * @param event event that called the method.
+     */
     @FXML
     public void operationPressed(Event event) {
         try {
@@ -912,7 +916,12 @@ public class Controller implements Initializable {
         return number;
     }
 
-    //todo
+    /**
+     * Prepends minus to screen {@code Label} if it is missed and number is not 0 or deletes it if it is already
+     * prepended.
+     *
+     * @throws ParseException if can not parse number.
+     */
     private void prependMinusIfMissed() throws ParseException {
         String screenText = screen.getText();
 
@@ -935,7 +944,13 @@ public class Controller implements Initializable {
         screen.setText(screenText);
     }
 
-    //todo
+    /**
+     * Sets equation text that depends on operation pressed.
+     *
+     * @param operation operation that was just pressed.
+     * @throws OverflowException if overflow validation failed.
+     * @throws ParseException    if can not parse number.
+     */
     private void setEquationText(Operation operation) throws OverflowException, ParseException {
         String equationTextToSet;
 
@@ -954,7 +969,14 @@ public class Controller implements Initializable {
         equation.setText(equationTextToSet);
     }
 
-    //todo
+    /**
+     * Creates text for equation {@code Label} if binary operation was just pressed.
+     *
+     * @param operation operation that was just pressed.
+     * @return text to set in equation {@code Label}.
+     * @throws OverflowException if overflow validation was failed.
+     * @throws ParseException    if can not parse number.
+     */
     private String equationForBinary(Operation operation) throws OverflowException, ParseException {
         String equationTextToSet;
 
@@ -967,7 +989,16 @@ public class Controller implements Initializable {
         return equationTextToSet;
     }
 
-    //todo
+
+    /**
+     * Creates text for equation {@code Label} if binary operation was just pressed and previous operation was not
+     * binary.
+     *
+     * @param operation operation that was just pressed.
+     * @return text to set in equation {@code Label}.
+     * @throws OverflowException if overflow validation was failed.
+     * @throws ParseException    if can not parse number.
+     */
     private String equationForBinaryNotAfterBinary(Operation operation) throws ParseException, OverflowException {
         String equationTextToSet;
 
@@ -995,7 +1026,13 @@ public class Controller implements Initializable {
         return equationTextToSet;
     }
 
-    //todo
+
+    /**
+     * Creates text for equation {@code Label} if binary operation was just pressed and previous operation was equals.
+     *
+     * @param operation operation that was just pressed.
+     * @return text to set in equation {@code Label}.
+     */
     private String equationForBinaryAfterEquals(Operation operation, BigDecimal number) {
         String equationTextToSet;
 
@@ -1010,7 +1047,13 @@ public class Controller implements Initializable {
         return equationTextToSet;
     }
 
-    //todo
+
+    /**
+     * Creates text for equation {@code Label} if binary operation was just pressed and previous operation is binary.
+     *
+     * @param operation operation that was just pressed.
+     * @return text to set in equation {@code Label}.
+     */
     private String equationForBinaryAfterBinary(Operation operation) {
         setFlags(false, true, false,
                 false, true, false, false);
@@ -1018,7 +1061,15 @@ public class Controller implements Initializable {
         return StringUtils.chop(equation.getText()) + operationSymbol(operation);
     }
 
-    //todo
+
+    /**
+     * Creates text for equation {@code Label} if unary operation was just pressed.
+     *
+     * @param operation operation that was just pressed.
+     * @return text to set in equation {@code Label}.
+     * @throws OverflowException if overflow validation was failed.
+     * @throws ParseException    if can not parse number.
+     */
     private String equationForUnary(Operation operation) throws OverflowException, ParseException {
         String equationTextToSet;
 
@@ -1109,7 +1160,13 @@ public class Controller implements Initializable {
                 Math.max(lastIndexOfMultiply, lastIndexOfDivide)) + 1;
     }
 
-    //todo
+
+    /**
+     * Creates text for equation {@code Label} if the only unary operation was just pressed.
+     *
+     * @param operation operation that was just pressed.
+     * @return text to set in equation {@code Label}.
+     */
     private String equationAfterUnary(Operation operation, BigDecimal number) {
         String equationTextToSet;
 
@@ -1124,7 +1181,12 @@ public class Controller implements Initializable {
         return equationTextToSet;
     }
 
-    //todo
+
+    /**
+     * Creates text for equation {@code Label} if percent operation was just pressed.
+     *
+     * @return text to set in equation {@code Label}.
+     */
     private String equationForPercentage() {
         String equationTextToSet = equation.getText();
 
@@ -1145,7 +1207,13 @@ public class Controller implements Initializable {
         return equationTextToSet;
     }
 
-    //todo
+
+    /**
+     * Creates text for equation {@code Label} if several percent operations were just pressed.
+     *
+     * @param equationTextToSet text from equation {@code Label} that should be changed.
+     * @return text to set in equation {@code Label}.
+     */
     private String equationTextAfterSeveralPercentage(String equationTextToSet) {
         int lastIndexOfOperation = findLastIndexOfOperation(equationTextToSet);
         String textBefore = equationTextToSet.substring(0, lastIndexOfOperation);
