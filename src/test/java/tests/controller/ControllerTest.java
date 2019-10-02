@@ -336,6 +336,7 @@ public class ControllerTest extends RobotControl {
 
         //after dot
         checkTyped("7255.34", "7,255.34");
+
         //after dot with 16 digits summary
         checkTyped("123019.8498533564", "123,019.8498533564");
 
@@ -1027,7 +1028,7 @@ public class ControllerTest extends RobotControl {
         checkTyped("62.%", "0", "0");
 
         //in a row
-        checkTyped("866%%%%%", "0", "0");
+        checkTyped("866%%%%%", "0", " 0");
         checkTyped("866+%%%%%", "42,180,075.43559148",
                 "866 + 42180075.43559148");
         checkTyped("866/%%%%%", "0.0000000866", "866 ÷ 0.0000000866");
@@ -1046,7 +1047,7 @@ public class ControllerTest extends RobotControl {
 
         //after equals
         checkTyped("73=%", "0", "0");
-        checkTyped("53+1 2 = %", "42.25", "42.25");
+        checkTyped("53+12=%", "42.25", "42.25");
         checkTyped("53/12=%", "0.04416666666666667", "0.04416666666666667");
 
         //percent after second inputted
@@ -1191,8 +1192,8 @@ public class ControllerTest extends RobotControl {
         //left
         checkTypedWithoutResetMemory("MR neg MS esc" + theSmallestNumber + "*-1+MR",
                 "-9.999999999999999e+9999");
-        checkOverflowExceptionWithoutResetMemory(theSmallestNumber + "*-1+=+ MR =");
-        checkOverflowExceptionWithoutResetMemory(theSmallestNumber + "*-1+==+ MR =");
+        checkOverflowExceptionWithoutResetMemory(theSmallestNumber + "*1neg+=+ MR =");
+        checkOverflowExceptionWithoutResetMemory(theSmallestNumber + "*1neg+==+ MR =");
 
         //min numbers
         checkTyped(theSmallestNumber + "MS *2=- MR =", "1.e-9999");
@@ -1263,7 +1264,7 @@ public class ControllerTest extends RobotControl {
      * @param expectedScreenText required text on screen {@code Label} after clicking.
      */
     private void checkTypedWithoutResetMemory(String buttons, String expectedScreenText) {
-        clickOn(getButtonBySelector(CLEAR_ALL_ID));
+        pressKeyboard("del");
         pressKeyboard(buttons);
 
         assertEquals(expectedScreenText, getLabeledBySelector(SCREEN_LABEL_ID).getText());
