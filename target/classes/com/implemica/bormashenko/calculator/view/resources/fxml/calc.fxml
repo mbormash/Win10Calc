@@ -92,7 +92,7 @@
             <RowConstraints minHeight="-Infinity" prefHeight="45.0" valignment="BOTTOM" vgrow="ALWAYS" />
             <RowConstraints minHeight="-Infinity" prefHeight="47.0" valignment="BOTTOM" vgrow="ALWAYS" />
         </rowConstraints>
-        <Button fx:id="percent" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#percentOperation" text="" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Button fx:id="percent" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#operationPressed" text="" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
             <styleClass>
                 <String fx:value="operations" />
                 <String fx:value="very_light_gray_background" />
@@ -144,7 +144,7 @@
                 <Insets left="2.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="negate" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#negateOperation" text="" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.vgrow="ALWAYS">
+        <Button fx:id="negate" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#operationPressed" text="" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.vgrow="ALWAYS">
             <styleClass>
                 <String fx:value="operations" />
                 <String fx:value="very_light_gray_background" />
@@ -155,7 +155,7 @@
                 <Insets bottom="2.0" left="2.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="sqrt" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#squareRootOperation" text="" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Button fx:id="sqrt" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#operationPressed" text="" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
             <styleClass>
                 <String fx:value="operations" />
                 <String fx:value="very_light_gray_background" />
@@ -163,7 +163,7 @@
                 <String fx:value="font_assets" />
             </styleClass>
         </Button>
-        <Button fx:id="sqr" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#squareOperation" text="𝑥²" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Button fx:id="sqr" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#operationPressed" text="𝑥²" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
             <styleClass>
                 <String fx:value="operations_degree" />
                 <String fx:value="very_light_gray_background" />
@@ -171,7 +171,7 @@
                 <String fx:value="font_segoe_ui" />
             </styleClass>
         </Button>
-        <Button fx:id="inverse" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="50.0" mnemonicParsing="false" onAction="#inverseOperation" text="⅟𝑥" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Button fx:id="inverse" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="50.0" mnemonicParsing="false" onAction="#operationPressed" text="⅟𝑥" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
             <styleClass>
                 <String fx:value="operations_degree" />
                 <String fx:value="very_light_gray_background" />
@@ -182,7 +182,7 @@
                 <Insets right="2.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="divide" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#divideOperation" text="" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Button fx:id="divide" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#operationPressed" text="" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
             <styleClass>
                 <String fx:value="operations" />
                 <String fx:value="very_light_gray_background" />
@@ -193,7 +193,7 @@
                 <Insets right="2.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="clearAll" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#resetAll" text="C" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Button fx:id="clearAll" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearAll" text="C" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
             <styleClass>
                 <String fx:value="operations" />
                 <String fx:value="very_light_gray_background" />
@@ -223,7 +223,7 @@
                 <String fx:value="font_segoe_ui_semibold" />
             </styleClass>
         </Button>
-        <Button fx:id="multiply" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#multiplyOperation" text="" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Button fx:id="multiply" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#operationPressed" text="" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
             <styleClass>
                 <String fx:value="operations" />
                 <String fx:value="very_light_gray_background" />
@@ -241,7 +241,7 @@
                 <String fx:value="font_segoe_ui_semibold" />
             </styleClass>
         </Button>
-        <Button fx:id="equals" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="50.0" mnemonicParsing="false" onAction="#equalsOperation" text="" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Button fx:id="equals" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="50.0" mnemonicParsing="false" onAction="#operationPressed" text="" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
             <styleClass>
                 <String fx:value="operations" />
                 <String fx:value="very_light_gray_background" />
@@ -252,7 +252,7 @@
                 <Insets bottom="2.0" right="2.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="add" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="50.0" mnemonicParsing="false" onAction="#addOperation" text="" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Button fx:id="add" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="50.0" mnemonicParsing="false" onAction="#operationPressed" text="" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
             <styleClass>
                 <String fx:value="operations" />
                 <String fx:value="very_light_gray_background" />
@@ -307,7 +307,7 @@
                 <String fx:value="font_segoe_ui_semibold" />
             </styleClass>
         </Button>
-        <Button fx:id="subtract" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subtractOperation" text="" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Button fx:id="subtract" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#operationPressed" text="" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
             <styleClass>
                 <String fx:value="operations" />
                 <String fx:value="very_light_gray_background" />
