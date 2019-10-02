@@ -1,70 +1,64 @@
 package com.implemica.bormashenko.calculator.model.enums;
 
-/**
- * This enum contains binary operations used in {@link com.implemica.bormashenko.calculator.model.Calculation}.
- *
- * @author Mykhailo Bormashenko
- */
+//todo
 public enum Operation {
 
     /**
      * Sums two numbers.
      */
-    ADD("binary"),
+    ADD(OperationType.BINARY),
 
     /**
      * Subtracts one number from another.
      */
-    SUBTRACT("binary"),
+    SUBTRACT(OperationType.BINARY),
 
     /**
      * Multiplies two numbers.
      */
-    MULTIPLY("binary"),
+    MULTIPLY(OperationType.BINARY),
 
     /**
      * Divides one number to another.
      */
-    DIVIDE("binary"),
+    DIVIDE(OperationType.BINARY),
 
     /**
      * Negates number.
      */
-    NEGATE("unary"),
+    NEGATE(OperationType.UNARY),
 
     /**
      * Calculates square of number.
      */
-    SQR("unary"),
+    SQR(OperationType.UNARY),
 
     /**
      * Calculates square root of number.
      */
-    SQRT("unary"),
+    SQRT(OperationType.UNARY),
 
     /**
      * Inverses number.
      */
-    INVERSE("unary"),
+    INVERSE(OperationType.UNARY),
 
     /**
      * Calculates percentage.
      */
-    PERCENT("percent"),
+    PERCENT(OperationType.PERCENT),
 
     /**
      * Calculates result of previously set binary operation.
      */
-    EQUALS("equals");
+    EQUALS(OperationType.EQUALS);
 
     /**
      * Shows type of operation.
      */
-    public String type;
+    public OperationType type;
 
-    Operation(String type) {
+    Operation(OperationType type) {
         this.type = type;
     }
-
-
 }
