@@ -117,8 +117,57 @@ public class Calculation {
     }
 
     /**
-     * Performs operation. If numbers were passed, sets them as first or second. Operations can be made with first
-     * number, second or between both of them. Does not support priority.
+     * Sets number as first or second and performs operation. Operations can be made with first number, second or
+     * between both of them. Does not support priority.
+     *
+     * @param operation operation to use.
+     * @return result of operation.
+     * @throws OverflowException         if overflow validation failed.
+     * @throws DivideZeroByZeroException if trying to divide zero by zero.
+     * @throws DivideByZeroException     if trying to divide by zero.
+     * @throws NegativeRootException     if trying to calculate negative root.
+     */
+    public BigDecimal doOperation(Operation operation) throws DivideByZeroException, OverflowException,
+            NegativeRootException, DivideZeroByZeroException {
+        return calculate(operation);
+    }
+
+    /**
+     * Sets number as first or second and performs operation. Operations can be made with first number, second or
+     * between both of them. Does not support priority.
+     *
+     * @param operation operation to use.
+     * @param number    number to set as first or second.
+     * @return result of operation.
+     * @throws OverflowException         if overflow validation failed.
+     * @throws DivideZeroByZeroException if trying to divide zero by zero.
+     * @throws DivideByZeroException     if trying to divide by zero.
+     * @throws NegativeRootException     if trying to calculate negative root.
+     */
+    public BigDecimal doOperation(Operation operation, BigDecimal number) throws DivideByZeroException, OverflowException,
+            NegativeRootException, DivideZeroByZeroException {
+        return calculate(operation, number);
+    }
+
+    /**
+     * Sets numbers as first and second and performs operation. Operations can be made with first number, second or
+     * between both of them. Does not support priority.
+     *
+     * @param operation operation to use.
+     * @return result of operation.
+     * @throws OverflowException         if overflow validation failed.
+     * @throws DivideZeroByZeroException if trying to divide zero by zero.
+     * @throws DivideByZeroException     if trying to divide by zero.
+     * @throws NegativeRootException     if trying to calculate negative root.
+     */
+    public BigDecimal doOperation(Operation operation, BigDecimal first, BigDecimal second) throws DivideByZeroException,
+            OverflowException, NegativeRootException, DivideZeroByZeroException {
+        return calculate(operation, first, second);
+    }
+
+    /**
+     * Performs operation. Operations can be made with first number, second or between both of them. Does not support
+     * priority.
      *
      * @param operation operation to use.
      * @param numbers   numbers to set as first and/or second.
@@ -128,16 +177,8 @@ public class Calculation {
      * @throws DivideByZeroException     if trying to divide by zero.
      * @throws NegativeRootException     if trying to calculate negative root.
      */
-    public BigDecimal doOperation(Operation operation, BigDecimal... numbers) throws OverflowException,
+    private BigDecimal calculate(Operation operation, BigDecimal... numbers) throws OverflowException,
             DivideZeroByZeroException, DivideByZeroException, NegativeRootException {
-        if (operation.type == OperationType.UNARY && numbers.length > 1) {
-            throw new IllegalArgumentException("Excepted: 0 or 1 number for setting as first and performing unary " +
-                    "operation. Got: " + numbers.length + " numbers.");
-        } else if (numbers.length > 2) {
-            throw new IllegalArgumentException("Excepted: 2 or less numbers for setting as first and second. Got: " +
-                    numbers.length + " numbers.");
-        }
-
         if (numbers.length == 1) {
 
             if (operation.type == OperationType.BINARY) {
