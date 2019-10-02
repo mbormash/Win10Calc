@@ -1,20 +1,23 @@
-package com.implemica.bormashenko.calculator.controller.util;
+package com.implemica.bormashenko.calculator.model.util;
 
 import java.math.BigDecimal;
 
-import static com.implemica.bormashenko.calculator.controller.util.NumberFormatter.MAX_SYMBOLS;
-
 /**
- * Class for editing number.
+ * Class that contains method for deleting and appending last digit of number.
  *
  * @author Mykhailo Bormashenko
  */
-public class NumberEditor {
+public class AppendAndDeleteDigit {
 
     /**
      * {@code BigDecimal} value for appending new digit to decimal number.
      */
     private static final BigDecimal ONE_TENTH = new BigDecimal("0.1");
+
+    /**
+     * Maximal amount of digit symbols that can be shown on screen {@code Label}.
+     */
+    private final static int MAX_SYMBOLS = 16;
 
     /**
      * Appends digit to number if it's precision less than {@code MAX_SYMBOLS}. If number is 0 with scale == 0 and dot

@@ -22,7 +22,7 @@ public class NumberFormatter {
     /**
      * Maximal amount of digit symbols that can be shown on screen {@code Label}.
      */
-    final static int MAX_SYMBOLS = 16;
+    private final static int MAX_SYMBOLS = 16;
 
     /**
      * Minimal value that can be shown on screen {@code Label} without using engineer representation.

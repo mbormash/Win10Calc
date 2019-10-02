@@ -1,19 +1,21 @@
-package tests.controller;
+package tests.model;
 
-import com.implemica.bormashenko.calculator.controller.util.NumberEditor;
+import com.implemica.bormashenko.calculator.model.util.AppendAndDeleteDigit;
 import com.implemica.bormashenko.calculator.controller.util.NumberFormatter;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
+import static com.implemica.bormashenko.calculator.model.util.AppendAndDeleteDigit.appendDigitToNumber;
+import static com.implemica.bormashenko.calculator.model.util.AppendAndDeleteDigit.deleteLastDigit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * Test class for testing {@link NumberEditor}.
+ * Test class for testing {@link AppendAndDeleteDigit}.
  *
  * @author Mykhailo Bormashenko
  */
-class NumberEditorTests {
+class AppendAndDeleteDigitTest {
 
     /**
      * Tests for append digit operation.
@@ -358,7 +360,7 @@ class NumberEditorTests {
         BigDecimal bigDecimalDigit = new BigDecimal(digit);
         BigDecimal bigDecimalExpectedResult = new BigDecimal(expectedResult);
 
-        assertEquals(bigDecimalExpectedResult, NumberEditor.appendDigitToNumber(bigDecimalNumber, bigDecimalDigit,
+        assertEquals(bigDecimalExpectedResult, appendDigitToNumber(bigDecimalNumber, bigDecimalDigit,
                 number.endsWith(String.valueOf(NumberFormatter.DECIMAL_SEPARATOR))));
     }
 
@@ -372,6 +374,6 @@ class NumberEditorTests {
         BigDecimal bigDecimalNumber = new BigDecimal(number);
         BigDecimal bigDecimalExpectedResult = new BigDecimal(expectedResult);
 
-        assertEquals(bigDecimalExpectedResult, NumberEditor.deleteLastDigit(bigDecimalNumber));
+        assertEquals(bigDecimalExpectedResult, deleteLastDigit(bigDecimalNumber));
     }
 }
