@@ -904,9 +904,9 @@ public class ViewTest extends RobotControl {
         };
 
         checkResizeFontButtons(operationButtons, 100, 300, 20);
-        checkResizeFontButtons(backspaceAndDot, 100, 300, 21);
+        checkResizeFontButtons(backspaceAndDot, 200, 400, 21);
         checkResizeFontButtons(degreeButtons, 100, 300, 24);
-        checkResizeFontButtons(digitsButtons, 100, 300, 29);
+        checkResizeFontButtons(digitsButtons, 200, 400, 29);
     }
 
     /**

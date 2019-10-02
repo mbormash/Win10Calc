@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/view/ViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/view/ViewTest.java" afterDir="false" />
     </list>
     <list id="82383ff1-c5f9-4fe0-897c-6d65fbc9d833" name="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;" comment="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;&#10;&#10;This reverts commit 7729eaa4" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,97 +91,101 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ControllerTest.allTests">
-    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.implemica.bormashenko.calculator.model.Demo" />
+  <component name="RunManager" selected="JUnit.ViewTest.allTests">
+    <configuration name="ViewTest.allTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Win10Calc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.implemica.bormashenko.calculator.model.*" />
+          <option name="PATTERN" value="tests.view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CalculationModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Win10Calc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.model" />
-      <option name="MAIN_CLASS_NAME" value="tests.model.CalculationModelTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ControllerTest.allTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Win10Calc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.controller" />
-      <option name="MAIN_CLASS_NAME" value="tests.controller.ControllerTest" />
+      <option name="PACKAGE_NAME" value="tests.view" />
+      <option name="MAIN_CLASS_NAME" value="tests.view.ViewTest" />
       <option name="METHOD_NAME" value="allTests" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerTest.boundaryFormattingTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ViewTest.maxScreenFontTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Win10Calc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.model.*" />
+          <option name="PATTERN" value="tests.view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests.controller" />
-      <option name="MAIN_CLASS_NAME" value="tests.controller.ControllerTest" />
-      <option name="METHOD_NAME" value="boundaryFormattingTests" />
+      <option name="PACKAGE_NAME" value="tests.view" />
+      <option name="MAIN_CLASS_NAME" value="tests.view.ViewTest" />
+      <option name="METHOD_NAME" value="maxScreenFontTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerTest.boundaryTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ViewTest.resizeButtonsFontTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Win10Calc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.model.*" />
+          <option name="PATTERN" value="tests.view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests.controller" />
-      <option name="MAIN_CLASS_NAME" value="tests.controller.ControllerTest" />
-      <option name="METHOD_NAME" value="boundaryTests" />
+      <option name="PACKAGE_NAME" value="tests.view" />
+      <option name="MAIN_CLASS_NAME" value="tests.view.ViewTest" />
+      <option name="METHOD_NAME" value="resizeButtonsFontTests" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ViewTest.resizeScreenFontTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Win10Calc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.view" />
+      <option name="MAIN_CLASS_NAME" value="tests.view.ViewTest" />
+      <option name="METHOD_NAME" value="resizeScreenFontTests" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ViewTest.resizeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Win10Calc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.view" />
+      <option name="MAIN_CLASS_NAME" value="tests.view.ViewTest" />
+      <option name="METHOD_NAME" value="resizeTests" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Demo" />
-      <item itemvalue="JUnit.ControllerTest.boundaryTests" />
-      <item itemvalue="JUnit.ControllerTest.boundaryFormattingTests" />
-      <item itemvalue="JUnit.ControllerTest.allTests" />
-      <item itemvalue="JUnit.CalculationModelTest" />
+      <item itemvalue="JUnit.ViewTest.resizeTests" />
+      <item itemvalue="JUnit.ViewTest.resizeScreenFontTests" />
+      <item itemvalue="JUnit.ViewTest.maxScreenFontTest" />
+      <item itemvalue="JUnit.ViewTest.resizeButtonsFontTests" />
+      <item itemvalue="JUnit.ViewTest.allTests" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ControllerTest.allTests" />
-        <item itemvalue="Application.Demo" />
-        <item itemvalue="JUnit.CalculationModelTest" />
-        <item itemvalue="JUnit.ControllerTest.boundaryFormattingTests" />
-        <item itemvalue="JUnit.ControllerTest.boundaryTests" />
+        <item itemvalue="JUnit.ViewTest.allTests" />
+        <item itemvalue="JUnit.ViewTest.resizeButtonsFontTests" />
+        <item itemvalue="JUnit.ViewTest.maxScreenFontTest" />
+        <item itemvalue="JUnit.ViewTest.resizeScreenFontTests" />
+        <item itemvalue="JUnit.ViewTest.resizeTests" />
       </list>
     </recent_temporary>
   </component>
@@ -194,13 +199,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
-    </task>
-    <task id="LOCAL-00229" summary="Append dot method in number formatter was edited.">
-      <created>1569527782455</created>
-      <option name="number" value="00229" />
-      <option name="presentableId" value="LOCAL-00229" />
-      <option name="project" value="LOCAL" />
-      <updated>1569527782455</updated>
     </task>
     <task id="LOCAL-00230" summary="Delete last digit method in number formatter was edited.">
       <created>1569531608687</created>
@@ -538,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570011391977</updated>
     </task>
-    <option name="localTasksCounter" value="278" />
+    <task id="LOCAL-00278" summary="Magic constant removed.">
+      <created>1570011531002</created>
+      <option name="number" value="00278" />
+      <option name="presentableId" value="LOCAL-00278" />
+      <option name="project" value="LOCAL" />
+      <updated>1570011531002</updated>
+    </task>
+    <option name="localTasksCounter" value="279" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -572,7 +577,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Refactoring tell user about error method so message is shown before resetting." />
     <MESSAGE value="Bug fix with appending digit after dot." />
     <MESSAGE value="Added examples to javadoc. Validation added to append digit method." />
     <MESSAGE value="Javadoc updated." />
@@ -597,7 +601,8 @@
     <MESSAGE value="Refactoring tests for model." />
     <MESSAGE value="Removing methods from number editor to model." />
     <MESSAGE value="Updating javadoc." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating javadoc." />
+    <MESSAGE value="Magic constant removed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Magic constant removed." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -633,7 +638,7 @@
     <SUITE FILE_PATH="coverage/Win10Calc$Model_in_Win10Calc.ic" NAME="Model in Win10Calc Coverage Results" MODIFIED="1566389321992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.implemica.bormashenko.calculator.model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Win10Calc$ControllerTest_allTests.ic" NAME="ControllerTest.allTests Coverage Results" MODIFIED="1568375565226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Win10Calc$ControllerTest_allTests.ic" NAME="ControllerTest.allTests Coverage Results" MODIFIED="1570011887875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.implemica.bormashenko.calculator.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Win10Calc$NumberFormatterTest.ic" NAME="NumberFormatterTest Coverage Results" MODIFIED="1568367630709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
