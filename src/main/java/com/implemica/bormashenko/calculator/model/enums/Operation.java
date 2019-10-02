@@ -1,6 +1,10 @@
 package com.implemica.bormashenko.calculator.model.enums;
 
-//todo
+/**
+ * Enum with operations that can be used in model.
+ *
+ * @author Mykhailo Bormashenko
+ */
 public enum Operation {
 
     /**

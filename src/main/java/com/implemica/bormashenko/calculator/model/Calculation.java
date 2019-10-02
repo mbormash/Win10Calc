@@ -66,10 +66,14 @@ public class Calculation {
      */
     private boolean isSecondSet = false;
 
-    //todo
+    /**
+     * True if next unary operations should be made with first number or false otherwise.
+     */
     private boolean unaryOnFirst = false;
 
-    //todo
+    /**
+     * True if previous operation was equals or false otherwise.
+     */
     private boolean previousEquals = false;
 
     /**
@@ -106,9 +110,20 @@ public class Calculation {
         previousEquals = false;
     }
 
-    //todo
-    public BigDecimal doOperation(Operation operation, BigDecimal... numbers) throws OverflowException, DivideZeroByZeroException,
-            DivideByZeroException, NegativeRootException {
+    /**
+     * Performs operation. If numbers were passed, sets them as first or second. Operations can be made with first
+     * number, second or between both of them. Does not support priority.
+     *
+     * @param operation operation to use.
+     * @param numbers   numbers to set as first and/or second.
+     * @return result of operation.
+     * @throws OverflowException         if overflow validation failed.
+     * @throws DivideZeroByZeroException if trying to divide zero by zero.
+     * @throws DivideByZeroException     if trying to divide by zero.
+     * @throws NegativeRootException     if trying to calculate negative root.
+     */
+    public BigDecimal doOperation(Operation operation, BigDecimal... numbers) throws OverflowException,
+            DivideZeroByZeroException,  DivideByZeroException, NegativeRootException {
         if (operation.type == OperationType.UNARY && numbers.length > 1) {
             throw new IllegalArgumentException("Excepted: 0 or 1 number for setting as first and performing unary " +
                     "operation. Got: " + numbers.length + " numbers.");
@@ -149,7 +164,15 @@ public class Calculation {
         return result;
     }
 
-    //todo
+    /**
+     * Performs operation if second number is not set.
+     * @param operation operation to use.
+     * @return result of operation.
+     * @throws OverflowException         if overflow validation failed.
+     * @throws DivideZeroByZeroException if trying to divide zero by zero.
+     * @throws DivideByZeroException     if trying to divide by zero.
+     * @throws NegativeRootException     if trying to calculate negative root.
+     */
     private BigDecimal operationWithoutSecond(Operation operation) throws OverflowException, DivideZeroByZeroException,
             DivideByZeroException, NegativeRootException {
         BigDecimal result = BigDecimal.ZERO;
@@ -195,7 +218,15 @@ public class Calculation {
         return result;
     }
 
-    //todo
+    /**
+     * Performs operation if second number is set.
+     * @param operation operation to use.
+     * @return result of operation.
+     * @throws OverflowException         if overflow validation failed.
+     * @throws DivideZeroByZeroException if trying to divide zero by zero.
+     * @throws DivideByZeroException     if trying to divide by zero.
+     * @throws NegativeRootException     if trying to calculate negative root.
+     */
     private BigDecimal operationWithSecond(Operation operation) throws OverflowException, DivideByZeroException,
             NegativeRootException, DivideZeroByZeroException {
         BigDecimal result = BigDecimal.ZERO;

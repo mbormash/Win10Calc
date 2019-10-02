@@ -4,14 +4,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="Refactoring tests for model.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/util/AppendAndDeleteDigit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/util/NumberEditor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/util/NumberFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/controller/util/NumberFormatter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/controller/NumberEditorTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/model/AppendAndDeleteDigitTest.java" afterDir="false" />
+    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/enums/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/enums/Operation.java" afterDir="false" />
     </list>
     <list id="82383ff1-c5f9-4fe0-897c-6d65fbc9d833" name="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;" comment="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;&#10;&#10;This reverts commit 7729eaa4" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -200,20 +195,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
-    </task>
-    <task id="LOCAL-00226" summary="Refactoring overflow validation.">
-      <created>1569443065440</created>
-      <option name="number" value="00226" />
-      <option name="presentableId" value="LOCAL-00226" />
-      <option name="project" value="LOCAL" />
-      <updated>1569443065440</updated>
-    </task>
-    <task id="LOCAL-00227" summary="Refactoring number formatter.">
-      <created>1569493089851</created>
-      <option name="number" value="00227" />
-      <option name="presentableId" value="LOCAL-00227" />
-      <option name="project" value="LOCAL" />
-      <updated>1569493089851</updated>
     </task>
     <task id="LOCAL-00228" summary="Append digit method in number formatter was edited.">
       <created>1569526590858</created>
@@ -544,7 +525,21 @@
       <option name="project" value="LOCAL" />
       <updated>1569977463011</updated>
     </task>
-    <option name="localTasksCounter" value="275" />
+    <task id="LOCAL-00275" summary="Removing methods from number editor to model.">
+      <created>1570010903787</created>
+      <option name="number" value="00275" />
+      <option name="presentableId" value="LOCAL-00275" />
+      <option name="project" value="LOCAL" />
+      <updated>1570010903787</updated>
+    </task>
+    <task id="LOCAL-00276" summary="Updating javadoc.">
+      <created>1570010992236</created>
+      <option name="number" value="00276" />
+      <option name="presentableId" value="LOCAL-00276" />
+      <option name="project" value="LOCAL" />
+      <updated>1570010992236</updated>
+    </task>
+    <option name="localTasksCounter" value="277" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -578,8 +573,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Magic constant took out to constant field." />
-    <MESSAGE value="Code duplications removed. Added comment for equals method while using BigDecimal." />
     <MESSAGE value="Refactoring tell user about error method so message is shown before resetting." />
     <MESSAGE value="Bug fix with appending digit after dot." />
     <MESSAGE value="Added examples to javadoc. Validation added to append digit method." />
@@ -603,7 +596,9 @@
     <MESSAGE value="Updating controller tests." />
     <MESSAGE value="Updating controller for using new version of model and realizing the same method for every operation button." />
     <MESSAGE value="Refactoring tests for model." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring tests for model." />
+    <MESSAGE value="Removing methods from number editor to model." />
+    <MESSAGE value="Updating javadoc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating javadoc." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
