@@ -4,9 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="" />
     <list id="82383ff1-c5f9-4fe0-897c-6d65fbc9d833" name="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;" comment="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;&#10;&#10;This reverts commit 7729eaa4" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -192,13 +190,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
-    </task>
-    <task id="LOCAL-00222" summary="Refactoring boolean methods in number formatter.">
-      <created>1569416169997</created>
-      <option name="number" value="00222" />
-      <option name="presentableId" value="LOCAL-00222" />
-      <option name="project" value="LOCAL" />
-      <updated>1569416169997</updated>
     </task>
     <task id="LOCAL-00223" summary="Removed code duplications.">
       <created>1569416985935</created>
@@ -536,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569945379530</updated>
     </task>
-    <option name="localTasksCounter" value="271" />
+    <task id="LOCAL-00271" summary="Boris remarks.">
+      <created>1569947576423</created>
+      <option name="number" value="00271" />
+      <option name="presentableId" value="LOCAL-00271" />
+      <option name="project" value="LOCAL" />
+      <updated>1569947576423</updated>
+    </task>
+    <option name="localTasksCounter" value="272" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -570,7 +568,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Updating javadocs." />
     <MESSAGE value="Refactoring delete last digit method in number editor." />
     <MESSAGE value="StringBuilder replaced by String where it was unnecessary to use." />
     <MESSAGE value="Magic constant took out to constant field." />
@@ -595,7 +592,8 @@
     <MESSAGE value="Bug fix in model with unary after equals." />
     <MESSAGE value="Refactoring enum operation." />
     <MESSAGE value="Refactoring model." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring model." />
+    <MESSAGE value="Boris remarks." />
+    <option name="LAST_COMMIT_MESSAGE" value="Boris remarks." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
