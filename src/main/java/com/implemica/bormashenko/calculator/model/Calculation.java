@@ -1,6 +1,7 @@
 package com.implemica.bormashenko.calculator.model;
 
 import com.implemica.bormashenko.calculator.model.enums.Operation;
+import com.implemica.bormashenko.calculator.model.enums.OperationType;
 import com.implemica.bormashenko.calculator.model.exceptions.DivideByZeroException;
 import com.implemica.bormashenko.calculator.model.exceptions.DivideZeroByZeroException;
 import com.implemica.bormashenko.calculator.model.exceptions.NegativeRootException;
@@ -65,15 +66,20 @@ public class Calculation {
      */
     private boolean isSecondSet = false;
 
+    //todo
+    private boolean unaryOnFirst = false;
+
+    //todo
+    private boolean previousEquals = false;
+
     /**
      * {@link Operation} of equation.
      */
     private Operation binaryOperation = null;
 
-    /**
-     * Previously used {@link Operation}.
-     */
-    private Operation previousOperation = null;
+    public Operation getBinaryOperation() {
+        return binaryOperation;
+    }
 
     public void setFirst(BigDecimal first) {
         this.first = first;
@@ -88,21 +94,6 @@ public class Calculation {
         isSecondSet = true;
     }
 
-    public Operation getBinaryOperation() {
-        return binaryOperation;
-    }
-
-    /**
-     * Sets operation only if it is binary.
-     *
-     * @param operation operation to check and set.
-     */
-    public void setBinaryOperation(Operation operation) {
-        if (operation.type.equals("binary")) {
-            this.binaryOperation = operation;
-        }
-    }
-
     /**
      * Resets all fields to theirs primary state.
      */
@@ -111,109 +102,149 @@ public class Calculation {
         second = BigDecimal.ZERO;
         binaryOperation = null;
         isSecondSet = false;
+        unaryOnFirst = false;
+        previousEquals = false;
     }
 
-    /**
-     * Calculates result using first value, second and operation. Values given by user. Binary operations performs
-     * with two numbers, unary - with one (depends on field {@code isSecondSet}.
-     *
-     * @param operation operation to use.
-     * @return result of operation.
-     * @throws OverflowException         if {@link OverflowValidation} failed.
-     * @throws DivideZeroByZeroException if trying to divide zero by zero.
-     * @throws DivideByZeroException     if trying to divide by zero.
-     * @throws NegativeRootException     if trying to calculate negative root.
-     */
-    public BigDecimal calculate(BigDecimal first, Operation operation, BigDecimal second) throws DivideByZeroException,
-            OverflowException, NegativeRootException, DivideZeroByZeroException {
-        this.first = first;
-        this.second = second;
-        isSecondSet = true;
-        setBinaryOperation(operation);
-        this.first = calculate(Operation.EQUALS);
-        return this.first;
+    //todo
+    public BigDecimal doOperation(Operation operation, BigDecimal... numbers) throws OverflowException, DivideZeroByZeroException,
+            DivideByZeroException, NegativeRootException {
+        if (operation.type == OperationType.UNARY && numbers.length > 1) {
+            throw new IllegalArgumentException("Excepted: 0 or 1 number for setting as first and performing unary " +
+                    "operation. Got: " + numbers.length + " numbers.");
+        } else if (numbers.length > 2) {
+            throw new IllegalArgumentException("Excepted: 2 or less numbers for setting as first and second. Got: " +
+                    numbers.length + " numbers.");
+        }
+
+        if (numbers.length == 1) {
+
+            if (operation.type == OperationType.BINARY) {
+                second = numbers[0];
+                isSecondSet = true;
+                binaryOperation = null;
+            } else {
+                first = numbers[0];
+            }
+        }
+
+        if (numbers.length == 2) {
+            first = numbers[0];
+            second = numbers[1];
+            isSecondSet = true;
+        }
+
+        BigDecimal result;
+
+        if (!isSecondSet) {
+            result = operationWithoutSecond(operation);
+        } else {
+            result = operationWithSecond(operation);
+        }
+
+        if (numbers.length == 2) {
+            unaryOnFirst = true;
+        }
+
+        return result;
     }
 
-    /**
-     * Calculates result using value given by user and operation. Binary operations performs with two numbers,
-     * unary - with one (depends on field {@code isSecondSet}.
-     *
-     * @param operation operation to use.
-     * @return result of operation.
-     * @throws OverflowException         if {@link OverflowValidation} failed.
-     * @throws DivideZeroByZeroException if trying to divide zero by zero.
-     * @throws DivideByZeroException     if trying to divide by zero.
-     * @throws NegativeRootException     if trying to calculate negative root.
-     */
-    public BigDecimal calculate(BigDecimal value, Operation operation) throws DivideByZeroException,
-            OverflowException, NegativeRootException, DivideZeroByZeroException {
-        this.first = value;
-        this.first = calculate(operation);
-        return this.first;
-    }
-
-    /**
-     * Calculates result using first value, second and operation. Binary operations performs with two numbers,
-     * unary - with one (depends on field {@code isSecondSet}.
-     *
-     * @param operation operation to use.
-     * @return result of operation.
-     * @throws OverflowException         if {@link OverflowValidation} failed.
-     * @throws DivideZeroByZeroException if trying to divide zero by zero.
-     * @throws DivideByZeroException     if trying to divide by zero.
-     * @throws NegativeRootException     if trying to calculate negative root.
-     */
-    public BigDecimal calculate(Operation operation) throws OverflowException, DivideZeroByZeroException,
+    //todo
+    private BigDecimal operationWithoutSecond(Operation operation) throws OverflowException, DivideZeroByZeroException,
             DivideByZeroException, NegativeRootException {
         BigDecimal result = BigDecimal.ZERO;
 
-        if (isSecondSet) {
+        if (operation.type == OperationType.UNARY) {
+            result = calculateUnary(first, operation);
 
-            if (operation.type.equals("unary")) {
-
-                if (previousOperation.type.equals("equals")) {
-                    first = calculateUnary(first, operation);
-                    result = first;
-                } else {
-                    second = calculateUnary(second, operation);
-                    result = second;
-                }
-
-            } else if (operation.type.equals("percent")) {
-                second = calculatePercentage(second);
-                result = second;
-            } else if (operation.type.equals("binary") || operation.type.equals("equals")) {
-
-                if (binaryOperation == null) {
-                    setBinaryOperation(operation);
-                }
-
-                result = calculateBinary();
+            if (binaryOperation != null) {
+                second = result;
+                isSecondSet = true;
+            } else {
                 first = result;
-
-                if (operation.type.equals("binary")) {
-                    setBinaryOperation(operation);
-                }
             }
 
-        } else {
+            previousEquals = false;
+        } else if (operation.type == OperationType.BINARY) {
+            result = first;
+            binaryOperation = operation;
+            previousEquals = false;
+        } else if (operation.type == OperationType.PERCENT) {
+            result = calculatePercentage(first);
 
-            if (operation.type.equals("unary")) {
-                result = calculateUnary(first, operation);
-                first = result;
-            } else if (operation.type.equals("percent")) {
-                result = calculatePercentage(first);
-            } else if (operation.type.equals("binary")) {
-                setBinaryOperation(operation);
-            } else if (operation.type.equals("equals")) {
+            if (binaryOperation != null) {
+                second = result;
+                isSecondSet = true;
+            }
+
+            previousEquals = false;
+        } else if (operation.type == OperationType.EQUALS) {
+
+            if (binaryOperation != null) {
                 second = first;
                 isSecondSet = true;
                 result = calculateBinary();
                 first = result;
+            } else {
+                result = first;
             }
+
+            previousEquals = true;
         }
 
-        previousOperation = operation;
+        return result;
+    }
+
+    //todo
+    private BigDecimal operationWithSecond(Operation operation) throws OverflowException, DivideByZeroException,
+            NegativeRootException, DivideZeroByZeroException {
+        BigDecimal result = BigDecimal.ZERO;
+
+        if (operation.type == OperationType.UNARY) {
+
+            if (unaryOnFirst) {
+                result = calculateUnary(first, operation);
+                first = result;
+            } else {
+                result = calculateUnary(second, operation);
+                second = result;
+            }
+
+            previousEquals = false;
+        } else if (operation.type == OperationType.BINARY) {
+
+            if (binaryOperation == null) {
+                binaryOperation = operation;
+            }
+
+            if (previousEquals) {
+                result = first;
+                second = first;
+            } else {
+                result = calculateBinary();
+                first = result;
+            }
+
+            binaryOperation = operation;
+            previousEquals = false;
+            unaryOnFirst = false;
+        } else if (operation.type == OperationType.PERCENT) {
+
+            if (unaryOnFirst) {
+                result = calculatePercentage(first);
+            } else {
+                result = calculatePercentage(second);
+            }
+
+            second = result;
+            previousEquals = false;
+        } else if (operation.type == OperationType.EQUALS) {
+            result = calculateBinary();
+            first = result;
+            unaryOnFirst = true;
+            previousEquals = true;
+        }
+
         return result;
     }
 
@@ -492,6 +523,7 @@ public class Calculation {
      * @throws OverflowException while validation for second number is failed.
      */
     private BigDecimal percentageOf100(BigDecimal number) throws OverflowException {
+        //todo
         if (number.abs().compareTo(new BigDecimal("1.e-9998")) <= 0 && number.compareTo(BigDecimal.ZERO) != 0) {
             throw new OverflowException();
         }
