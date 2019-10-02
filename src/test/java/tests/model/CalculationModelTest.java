@@ -77,7 +77,7 @@ class CalculationModelTest {
         calculation.setSecond(BigDecimal.TEN);
 
         try {
-            calculation.calculate(ADD);
+            calculation.doOperation(ADD);
         } catch (OverflowException | DivideByZeroException | DivideZeroByZeroException | NegativeRootException e) {
             fail();
         }
@@ -926,7 +926,7 @@ class CalculationModelTest {
         calculation.setSecond(BigDecimal.ONE);
 
         try {
-            calculation.calculate(PERCENT);
+            calculation.doOperation(PERCENT);
         } catch (OverflowException | DivideZeroByZeroException | DivideByZeroException | NegativeRootException e) {
             fail();
         }
@@ -1234,7 +1234,7 @@ class CalculationModelTest {
         calculation.setSecond(BigDecimal.ZERO);
 
         try {
-            calculation.calculate(DIVIDE);
+            calculation.doOperation(DIVIDE);
             fail();
         } catch (OverflowException | DivideByZeroException | NegativeRootException e) {
             fail();
@@ -1252,7 +1252,7 @@ class CalculationModelTest {
         calculation.setFirst(BigDecimal.ZERO);
 
         try {
-            calculation.calculate(INVERSE);
+            calculation.doOperation(INVERSE);
             fail();
         } catch (OverflowException | NegativeRootException | DivideZeroByZeroException e) {
             fail();
@@ -1464,25 +1464,25 @@ class CalculationModelTest {
                     args[i].matches(ENGINEER_NUMBER_REGEX)) {
                 calculation.setSecond(new BigDecimal(args[i]));
             } else if (args[i].equals("+")) {
-                result = calculation.calculate(ADD);
+                result = calculation.doOperation(ADD);
             } else if (args[i].equals("-")) {
-                result = calculation.calculate(SUBTRACT);
+                result = calculation.doOperation(SUBTRACT);
             } else if (args[i].equals("*")) {
-                result = calculation.calculate(MULTIPLY);
+                result = calculation.doOperation(MULTIPLY);
             } else if (args[i].equals("/")) {
-                result = calculation.calculate(DIVIDE);
+                result = calculation.doOperation(DIVIDE);
             } else if (args[i].equals("neg")) {
-                result = calculation.calculate(NEGATE);
+                result = calculation.doOperation(NEGATE);
             } else if (args[i].equals("sqr")) {
-                result = calculation.calculate(SQR);
+                result = calculation.doOperation(SQR);
             } else if (args[i].equals("root")) {
-                result = calculation.calculate(SQRT);
+                result = calculation.doOperation(SQRT);
             } else if (args[i].equals("inverse")) {
-                result = calculation.calculate(INVERSE);
+                result = calculation.doOperation(INVERSE);
             } else if (args[i].equals("%")) {
-                result = calculation.calculate(PERCENT);
+                result = calculation.doOperation(PERCENT);
             } else if (args[i].equals("=")) {
-                result = calculation.calculate(EQUALS);
+                result = calculation.doOperation(EQUALS);
             } else {
                 throw new IllegalArgumentException("Expected: operation or number. Got: " + args[i]);
             }
