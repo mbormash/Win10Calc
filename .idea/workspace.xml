@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a6fea7d4-6ccc-4c8c-a1b6-b5cfa628253e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/implemica/bormashenko/calculator/model/Calculation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/model/CalculationModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/model/CalculationModelTest.java" afterDir="false" />
     </list>
     <list id="82383ff1-c5f9-4fe0-897c-6d65fbc9d833" name="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;" comment="Revert &quot;Bug fixes with showing numbers in screen and equation labels.&quot;&#10;&#10;This reverts commit 7729eaa4" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -195,13 +193,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564143613323</updated>
-    </task>
-    <task id="LOCAL-00231" summary="Change sign method in number formatter was edited.">
-      <created>1569532562625</created>
-      <option name="number" value="00231" />
-      <option name="presentableId" value="LOCAL-00231" />
-      <option name="project" value="LOCAL" />
-      <updated>1569532562625</updated>
     </task>
     <task id="LOCAL-00232" summary="Demo was moved to model package and updated to became dynamically changeable.">
       <created>1569576601033</created>
@@ -539,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570014050437</updated>
     </task>
-    <option name="localTasksCounter" value="280" />
+    <task id="LOCAL-00280" summary="Refactoring model.">
+      <created>1570023360839</created>
+      <option name="number" value="00280" />
+      <option name="presentableId" value="LOCAL-00280" />
+      <option name="project" value="LOCAL" />
+      <updated>1570023360840</updated>
+    </task>
+    <option name="localTasksCounter" value="281" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -589,7 +587,6 @@
     <MESSAGE value="Demo updated." />
     <MESSAGE value="Bug fix in model with unary after equals." />
     <MESSAGE value="Refactoring enum operation." />
-    <MESSAGE value="Refactoring model." />
     <MESSAGE value="Refactoring view." />
     <MESSAGE value="Updating controller tests." />
     <MESSAGE value="Updating controller for using new version of model and realizing the same method for every operation button." />
@@ -598,7 +595,8 @@
     <MESSAGE value="Updating javadoc." />
     <MESSAGE value="Magic constant removed." />
     <MESSAGE value="Updating view tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating view tests." />
+    <MESSAGE value="Refactoring model." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring model." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
